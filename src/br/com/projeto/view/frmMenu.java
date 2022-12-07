@@ -1,19 +1,45 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2022 Bruno Lucas Alcantara de Oliveira.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package br.com.projeto.view;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
- * @author bruno
+ * @author Bruno Oliveira
+ * @version 0.1
  */
 public class frmMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form frmMenu
      */
+    
+    public String usuariologado;
+    public String usuarioCargo;
     public frmMenu() {
         initComponents();
     }
@@ -27,6 +53,11 @@ public class frmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblCargo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -53,9 +84,51 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Usuário logado:");
+
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(0, 0, 204));
+        lblUsuario.setText("Bruno");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Cargo:");
+
+        lblCargo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblCargo.setForeground(new java.awt.Color(0, 0, 204));
+        lblCargo.setText("Bruno");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblUsuario)
+                .addGap(192, 192, 192)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCargo)
+                .addContainerGap(432, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblUsuario)
+                    .addComponent(jLabel2)
+                    .addComponent(lblCargo))
+                .addContainerGap())
+        );
+
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
         jMenuItem1.setText("Controle de clientes");
         jMenu1.add(jMenuItem1);
 
@@ -64,6 +137,7 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
         jMenu2.setText("Funcionários");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
         jMenuItem2.setText("Controle de funcionários");
         jMenu2.add(jMenuItem2);
 
@@ -72,6 +146,7 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
         jMenuItem3.setText("Controle de fornecedores");
         jMenu3.add(jMenuItem3);
 
@@ -80,9 +155,11 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
         jMenu6.setText("Produtos");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
         jMenuItem5.setText("Controle de estoque");
         jMenu6.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
         jMenuItem6.setText("Consulta de produtos");
         jMenu6.add(jMenuItem6);
 
@@ -91,12 +168,15 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
         jMenu4.setText("Vendas");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
         jMenuItem4.setText("Abrir PDV");
         jMenu4.add(jMenuItem4);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
         jMenuItem7.setText("Posição do dia");
         jMenu4.add(jMenuItem7);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
         jMenuItem8.setText("Histórico de vendas");
         jMenu4.add(jMenuItem8);
 
@@ -105,6 +185,7 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
         jMenu5.setText("Configurações");
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
         jMenuItem9.setText("Trocar de usuário");
         jMenu5.add(jMenuItem9);
 
@@ -120,11 +201,13 @@ public class frmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 818, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 252, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 216, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -134,6 +217,10 @@ public class frmMenu extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Forms do menu abrir maximizado
         this.setExtendedState(this.MAXIMIZED_BOTH);
+        //Mostrar qual usuario está logado
+        lblUsuario.setText(usuariologado);
+        //Mostrar cargo do usuario.
+        lblCargo.setText(usuarioCargo);
         this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
 
@@ -173,6 +260,8 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -190,5 +279,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCargo;
+    private javax.swing.JLabel lblUsuario;
     // End of variables declaration//GEN-END:variables
 }

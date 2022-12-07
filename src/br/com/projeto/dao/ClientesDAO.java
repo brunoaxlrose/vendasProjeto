@@ -69,8 +69,8 @@ public class ClientesDAO {
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getTelefone());
             stmt.setString(6, cliente.getCelular());
-            stmt.setString(7, cliente.getEndereco());
-            stmt.setString(8, cliente.getCep());
+            stmt.setString(7, cliente.getCep());
+            stmt.setString(8, cliente.getEndereco());
             stmt.setInt(9, cliente.getNumero());
             stmt.setString(10, cliente.getComplemento());
             stmt.setString(11, cliente.getBairro());
@@ -263,4 +263,5 @@ public class ClientesDAO {
         }
 
     }
+        
 }

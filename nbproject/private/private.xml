@@ -5,9 +5,13 @@
         <group>
             <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/view/frmMenu.java</file>
             <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/model/Utilitarios.java</file>
+            <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/model/Clientes.java</file>
             <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/view/frmLogin.java</file>
             <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/view/frmFuncionario.java</file>
+            <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/dao/FuncionariosDAO.java</file>
+            <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/dao/ClientesDAO.java</file>
             <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/view/frmCliente.java</file>
+            <file>file:/C:/Users/bruno/OneDrive/Documentos/NetBeansProjects/Projeto%20Venda/src/br/com/projeto/jdbc/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>

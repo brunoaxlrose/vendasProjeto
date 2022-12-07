@@ -4,6 +4,7 @@ import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Funcionario;
 import br.com.projeto.view.frmFuncionario;
+import br.com.projeto.view.frmLogin;
 import br.com.projeto.view.frmMenu;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +20,10 @@ public class FuncionariosDAO {
     private Connection conexao;
 
     public FuncionariosDAO() {
-        //Manipular o banco de dados através desse método.
+        /**
+         * 
+         * @description Manipular o banco de dados através desse método.
+         */
         this.conexao = new ConnectionFactory().getConnection();
     }
     
@@ -162,8 +166,7 @@ public class FuncionariosDAO {
             String sql = "update tb_funcionarios set nome=?,rg=?, cpf=?, email=?, senha=?, cargo=?"
                     + "   , nivel_acesso=?, telefone=?, celular=?, cep=?"
                     + "   , endereco=?, numero=?, complemento=?, bairro=?, cidade=?, estado=? where id = ?";
-                // O JAVA TEM UM NEGOCIO DAORA APPEND
-
+                
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getRg());
@@ -176,8 +179,8 @@ public class FuncionariosDAO {
             
             stmt.setString(8, funcionario.getTelefone());
             stmt.setString(9, funcionario.getCelular());
-            stmt.setString(10, funcionario.getEndereco());
-            stmt.setString(11, funcionario.getCep());
+            stmt.setString(10, funcionario.getCep());
+            stmt.setString(11, funcionario.getEndereco());
             stmt.setInt(12, funcionario.getNumero());
             stmt.setString(13, funcionario.getComplemento());
             stmt.setString(14, funcionario.getBairro());
@@ -286,12 +289,16 @@ public class FuncionariosDAO {
                 frmMenu telaMenuPrincipal = new frmMenu();
                 JOptionPane.showMessageDialog(null, "Seja bem vindo ao Sistema!");
                 
+                
+                telaMenuPrincipal.usuariologado = rs.getString("nome");
+                telaMenuPrincipal.usuarioCargo = rs.getString("cargo");
                 //Abrir tela menu principal
                 telaMenuPrincipal.setVisible(true);
                 
             }else{
                 //Dados incorretos
                 JOptionPane.showMessageDialog(null, "Dados incorretos, solicite suporte!");
+                new frmLogin().setVisible(true);
             }
             
         } catch (SQLException erroSQL) {

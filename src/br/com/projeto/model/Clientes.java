@@ -102,4 +102,13 @@ public class Clientes {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    void open() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void close() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
