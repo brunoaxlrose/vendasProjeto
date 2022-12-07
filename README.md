@@ -14,7 +14,7 @@
 - Login
 
 *** Classe de conexão com banco de dados  ***
-br.com.projeto.jdbc   >>> ConnectionFactory
+- br.com.projeto.jdbc   >>> ConnectionFactory
 
 
 Futuramente estarei dando update no repositorio conforme andamento do projeto.
