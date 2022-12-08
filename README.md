@@ -9,7 +9,7 @@
 - ClientesDAO
 - FornecedoresDAO
 - FuncionariosDAO
-- ProdutosDAo
+- ProdutosDAO
 
 # br.com.projeto.jdbc CONTENDO minha classe conexão;
 - ConnectionFactory
@@ -28,10 +28,11 @@
 - Fornecedores
 - Funcionario
 - Produto
+- Tela PDV (Ponto de venda)
 - Menu principal
 - Login
 
 # imagens.pacotes icones CONTENDO meus ícones utilizados até o momento.
 
 
-Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 07/12/2022
+Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 08/12/2022
