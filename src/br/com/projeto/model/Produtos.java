@@ -27,23 +27,55 @@ package br.com.projeto.model;
  *
  * @author bruno
  */
-public class Fornecedores extends Clientes{
+public class Produtos {
     //Atributos
-    private String cnpj;
-
+    private int id;
+    private String descricao;
+    private double preco;
+    private int qtd_estoque;
+    
+    private Fornecedores fornecedor;
+    
     //Getters e Setters
-    public String getCnpj() {
-        return cnpj;
+    public int getId() {
+        return id;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQtd_estoque() {
+        return qtd_estoque;
+    }
+
+    public void setQtd_estoque(int qtd_estoque) {
+        this.qtd_estoque = qtd_estoque;
+    }
+
+    public Fornecedores getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedores fornecedor) {
+        this.fornecedor = fornecedor;
     }
     
-    //Para chamar o objeto Fornecedores junto com seus atributos, e mostrar o nome
-    @Override
-    public String toString(){
-        return this.getNome();     
-    }
     
 }
