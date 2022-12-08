@@ -5,13 +5,13 @@
 
 # Contendo 5 pastas  com códigos fontes sendo elas;
 
-# br.com.projeto.dao CONTENDO
+# br.com.projeto.dao CONTENDO meus métodos utilizando em meus forms;
 - ClientesDAO
 - FornecedoresDAO
 - FuncionariosDAO
 - ProdutosDAo
 
-# br.com.projeto.jdbc CONTENDO minha classe conexão
+# br.com.projeto.jdbc CONTENDO minha classe conexão;
 - ConnectionFactory
 - TestaConexao
 
