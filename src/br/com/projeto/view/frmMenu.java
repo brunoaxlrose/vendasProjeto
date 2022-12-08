@@ -60,11 +60,11 @@ public class frmMenu extends javax.swing.JFrame {
         lblCargo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        telaControleCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        telaControleFuncionario = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        telaControleFornecedor = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -128,27 +128,42 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
         jMenu1.setText("Clientes");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
-        jMenuItem1.setText("Controle de clientes");
-        jMenu1.add(jMenuItem1);
+        telaControleCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
+        telaControleCliente.setText("Controle de clientes");
+        telaControleCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(telaControleCliente);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
         jMenu2.setText("Funcionários");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
-        jMenuItem2.setText("Controle de funcionários");
-        jMenu2.add(jMenuItem2);
+        telaControleFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
+        telaControleFuncionario.setText("Controle de funcionários");
+        telaControleFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(telaControleFuncionario);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
-        jMenuItem3.setText("Controle de fornecedores");
-        jMenu3.add(jMenuItem3);
+        telaControleFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
+        telaControleFornecedor.setText("Controle de fornecedores");
+        telaControleFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleFornecedorActionPerformed(evt);
+            }
+        });
+        jMenu3.add(telaControleFornecedor);
 
         jMenuBar1.add(jMenu3);
 
@@ -224,6 +239,25 @@ public class frmMenu extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
 
+    private void telaControleFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFornecedorActionPerformed
+        // Botão para acessar a tela de fornecedor
+        frmFornecedor telaControleFornecedor = new frmFornecedor();
+        telaControleFornecedor.show();
+
+    }//GEN-LAST:event_telaControleFornecedorActionPerformed
+
+    private void telaControleFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionarioActionPerformed
+        // Botão para acessar a tela de funcionario
+        frmFuncionario telaControleFuncionario = new frmFuncionario();
+        telaControleFuncionario.show();
+    }//GEN-LAST:event_telaControleFuncionarioActionPerformed
+
+    private void telaControleClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleClienteActionPerformed
+        // Botão para acessar a tela de cliente
+        frmCliente telaControleCliente = new frmCliente();
+        telaControleCliente.show();
+    }//GEN-LAST:event_telaControleClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,9 +304,6 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -282,5 +313,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JMenuItem telaControleCliente;
+    private javax.swing.JMenuItem telaControleFornecedor;
+    private javax.swing.JMenuItem telaControleFuncionario;
     // End of variables declaration//GEN-END:variables
 }
