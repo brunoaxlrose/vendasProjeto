@@ -26,6 +26,7 @@ package br.com.projeto.dao;
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Fornecedores;
+import br.com.projeto.model.Funcionario;
 import br.com.projeto.model.Produtos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -204,5 +205,40 @@ public class ProdutosDAO {
         }              
     }
         
+       //Consultar produt pelo nome
+    public Produtos consultaPorNome(String nome)
+        {
+            try {
+                 //Comando para buscar pelo nome
+            String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p " 
+                   +     "inner join tb_fornecedores as f on (p.for_id = f.id) where p.descricao = ?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            Produtos produto = new Produtos();
+            Fornecedores fornecedor = new Fornecedores();
+            
+            if (rs.next()) {
+                              
+                produto.setId(rs.getInt("p.id"));
+                produto.setDescricao(rs.getString("p.descricao"));
+                produto.setPreco(rs.getDouble("p.preco"));
+                produto.setQtd_estoque(rs.getInt("p.qtd_estoque"));
+                
+                fornecedor.setNome(rs.getString("f.nome"));
+                
+                produto.setFornecedor(fornecedor);
+
+            }
+                return produto;
+                
+                
+            } catch (Exception e) {
+                
+                JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                return null;
+            }
+        }
 
 }

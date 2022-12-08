@@ -193,6 +193,11 @@ public class frmProduto extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbx_Fornecedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbx_FornecedorMouseClicked(evt);
+            }
+        });
         cbx_Fornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_FornecedorActionPerformed(evt);
@@ -387,8 +392,8 @@ public class frmProduto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(347, 347, 347)
                                 .addComponent(btnExportar)))
-                        .addGap(0, 238, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -583,22 +588,29 @@ public class frmProduto extends javax.swing.JFrame {
         // Esse botão busca com o nome especifico.
 
         String nome = txt_Descricao.getText();
-        Clientes cliente = new Clientes();
-        ClientesDAO dao = new ClientesDAO();
+        Produtos produto = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
 
-        cliente = dao.consultaClientePorNome(nome);
+        produto = dao.consultaPorNome(nome);
+        cbx_Fornecedor.removeAllItems();
 
         // Se cliente for diferente de nulo ele mostra
-        if (cliente.getNome() != null) {
+        if (produto.getDescricao() != null) {
             //Exibir os dados do cliente dentro dos campos dos textos
-            txt_Codigo.setText(String.valueOf(cliente.getId()));
-            txt_Descricao.setText(cliente.getNome());;
-            txt_Preco.setText(cliente.getEndereco());
-            txt_Estoque.setText(cliente.getBairro());
-            cbx_Fornecedor.setSelectedItem(cliente.getUf());
-            // Se não ele mostra mensagem cliente não encontrado.
+            txt_Codigo.setText(String.valueOf(produto.getId()));
+            txt_Descricao.setText(produto.getDescricao());;
+            txt_Preco.setText(String.valueOf(produto.getPreco()));
+            txt_Estoque.setText(String.valueOf(produto.getQtd_estoque()));
+            
+            Fornecedores fornecedor = new Fornecedores();
+            FornecedoresDAO fdao = new FornecedoresDAO();
+            
+            fornecedor=fdao.consultaFornecedorPorNome(produto.getFornecedor().getNome());
+            
+            cbx_Fornecedor.getModel().setSelectedItem(fornecedor);
+            // Se não ele mostra mensagem produto não encontrado.
         } else {
-            JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+            JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -623,7 +635,7 @@ public class frmProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_cbx_FornecedorActionPerformed
 
     private void cbx_FornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbx_FornecedorAncestorAdded
-        // Carregar o combobox com os fornecedores
+        // Carregar o combobox junto ao clicar pesquisar
         FornecedoresDAO dao = new FornecedoresDAO();
         List<Fornecedores> listadefornecedores = dao.listarFornecedores();
 
@@ -636,6 +648,17 @@ public class frmProduto extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cbx_FornecedorAncestorAdded
+
+    private void cbx_FornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbx_FornecedorMouseClicked
+        // Carregar os dados do fornecedor pelo combobox
+        FornecedoresDAO dao = new FornecedoresDAO();
+        List<Fornecedores> listaFornecedores= dao.listarFornecedores();
+        cbx_Fornecedor.removeAllItems();
+        
+        for(Fornecedores f: listaFornecedores){
+            cbx_Fornecedor.addItem(f);
+        }
+    }//GEN-LAST:event_cbx_FornecedorMouseClicked
 
     /**
      * @param the command line arguments
