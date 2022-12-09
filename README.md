@@ -9,7 +9,9 @@
 - ClientesDAO
 - FornecedoresDAO
 - FuncionariosDAO
+- ItensVendaDAO
 - ProdutosDAO
+- VendasDAO
 
 # br.com.projeto.jdbc CONTENDO minha classe conexão;
 - ConnectionFactory
@@ -19,8 +21,10 @@
 - Cliente
 - Fornecedores
 - Funcionario
+- ItensVendas
 - Produtos
 - Utilitarios
+- Vendas
 - Biblioteca de CEP
 
 # br.com.projeto.view CONTENDO meus forms;
@@ -29,6 +33,7 @@
 - Funcionario
 - Produto
 - Tela PDV (Ponto de venda)
+- Tela finalizar compra (Pagamentos)
 - Menu principal
 - Login
 
