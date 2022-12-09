@@ -40,7 +40,7 @@
 
 # imagens.pacotes icones CONTENDO meus ícones utilizados até o momento.
 
-#Obs contém uma API de email, estou realizando testes para implementação ao sistema.
+# Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
 
 Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 09/12/2022
