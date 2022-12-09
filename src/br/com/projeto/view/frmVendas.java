@@ -462,6 +462,7 @@ public class frmVendas extends javax.swing.JFrame {
         
         txt_Produto.setText(obj.getDescricao());
         txt_Preco.setText(String.valueOf(obj.getPreco()));
+        
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -506,6 +507,7 @@ public class frmVendas extends javax.swing.JFrame {
         telaPagamento.txtTotal.setText(String.valueOf(total));
         
         telaPagamento.cliente = cliente;
+        telaPagamento.carrinho = carrinho;
         
         telaPagamento.setVisible(true);
         this.dispose();

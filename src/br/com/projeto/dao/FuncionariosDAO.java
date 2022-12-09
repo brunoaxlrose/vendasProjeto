@@ -128,7 +128,7 @@ public class FuncionariosDAO {
             // Comando  de inserção sqlna tabela funcionarios.
             String sql = "insert into tb_funcionarios(nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,"
                     +    "celular,endereco,cep,numero,complemento,bairro,cidade,estado)"
-                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, funcionario.getNome());

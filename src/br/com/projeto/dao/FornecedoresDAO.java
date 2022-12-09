@@ -52,7 +52,7 @@ public class FornecedoresDAO {
         try {
             // Comando  de inserção sqlna tabela fornecedores.
             String sql = "insert into tb_fornecedores(nome,cnpj,email,telefone,celular,endereco,cep,numero,complemento,bairro,cidade,estado)"
-                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, fornecedor.getNome());

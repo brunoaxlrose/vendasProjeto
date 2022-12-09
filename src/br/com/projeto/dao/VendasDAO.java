@@ -49,7 +49,7 @@ public class VendasDAO {
         try {
             // Comando  de inserção sqlna tabela de vendas.
             String sql = "insert into tb_vendas(cliente_id, data_venda, total_venda, observacoes)"
-                    + "                   values (?,?,?,?);";
+                    + "                   values (?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, venda.getCliente().getId());
@@ -65,7 +65,8 @@ public class VendasDAO {
             JOptionPane.showMessageDialog(null, "Venda registrada com sucesso");
 
         } catch (SQLException erroSql) {
-            JOptionPane.showMessageDialog(null, "Erro" + erroSql);
+            throw new RuntimeException(erroSql);
+            //JOptionPane.showMessageDialog(null, "Erro" + erroSql);
         }
     }
 

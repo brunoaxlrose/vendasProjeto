@@ -23,10 +23,47 @@
  */
 package br.com.projeto.dao;
 
+import br.com.projeto.jdbc.ConnectionFactory;
+import br.com.projeto.model.ItemVendas;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bruno
  */
 public class ItemVendaDAO {
+        private Connection conexao;
+
+    public ItemVendaDAO() {
+
+        this.conexao = new ConnectionFactory().getConnection();
+    }
     
+    //Método para cadastrar os itens
+    public void cadastrarItem(ItemVendas vendaItem){
+                try {
+            // Comando  de inserção sqlna tabela de itensVenda.
+            String sql = "insert into tb_itensvendas(venda_id, produto_id, qtd, subtotal)"
+                    + "                   values (?,?,?,?)";
+            // Conectar ao banco de dados e organizar o comando sql.
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, vendaItem.getVenda().getId());
+            stmt.setInt(2, vendaItem.getProduto().getId());
+            stmt.setInt(3, vendaItem.getQtd());
+            stmt.setDouble(4, vendaItem.getSubtotal());
+
+            // Executar comando sql
+            stmt.execute();
+            // Fecha a conexão com banco de dados.
+            stmt.close();
+
+            
+
+        } catch (SQLException erroSql) {
+            JOptionPane.showMessageDialog(null, "Erro" + erroSql);
+        }
+    }
 }

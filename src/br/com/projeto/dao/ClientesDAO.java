@@ -25,7 +25,7 @@ public class ClientesDAO {
         try {
             // Comando  de inserção sqlna tabela clientes.
             String sql = "insert into tb_clientes(nome,rg,cpf,email,telefone,celular,endereco,cep,numero,complemento,bairro,cidade,estado)"
-                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "                   values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());

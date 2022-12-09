@@ -23,11 +23,16 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
 import br.com.projeto.dao.VendasDAO;
 import br.com.projeto.model.Clientes;
+import br.com.projeto.model.ItemVendas;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,8 +41,8 @@ import java.util.Date;
 public class frmPagamentos extends javax.swing.JFrame {
 
     Clientes cliente = new Clientes();
-    
-    
+    DefaultTableModel carrinho;
+
     public frmPagamentos() {
         initComponents();
         txt_Cartao.setText("0");
@@ -276,45 +281,71 @@ public class frmPagamentos extends javax.swing.JFrame {
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
         // Botão para finalizar venda
         
-        double pagamentoCartao, pagamentoCheque, pagamentoDinheiro, totalPago, totalVenda, troco;
-        
-        pagamentoCartao = Double.parseDouble(txt_Cartao.getText());
-        pagamentoCheque = Double.parseDouble(txt_Cheque.getText());
-        pagamentoDinheiro = Double.parseDouble(txt_Dinheiro.getText());
-        
-        totalVenda = Double.parseDouble(txtTotal.getText());
-        
-        //Calcula total da compra e o preço
-        totalPago = pagamentoCartao + pagamentoCheque + pagamentoDinheiro;
-        
-        //Calcular o troco do cliente
-        troco = totalPago - totalVenda;
-        txt_Troco.setText(String.valueOf(troco));
-        
-        Vendas vendas = new Vendas();
-        
-        //Dados do cliente 
-        vendas.setCliente(cliente);
-        
-        // Pega a data da venda com formato dos EUA
-        Date agora = new Date();
-        SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
-        String dataMysql = dataEUA.format(agora);
-        
-        vendas.setData_venda(dataMysql);
-        
-        //Total da venda do cliente
-        vendas.setTotal_venda(totalVenda);
-        vendas.setObs(txtObs.getText());
-        
-        //Salvando vendas dentro do banco de dados
-        VendasDAO dao_vendas = new VendasDAO();
-        dao_vendas.cadastrarVenda(vendas);
-        
-        //Retorna o id da ultima venda realizada
-        vendas.setId(dao_vendas.retornarUltimaVenda());
-        
-        System.out.println("ID da última venda: " + vendas.getId());
+            double pagamentoCartao, pagamentoCheque, pagamentoDinheiro, totalPago, totalVenda, troco;
+
+            pagamentoCartao = Double.parseDouble(txt_Cartao.getText());
+            pagamentoCheque = Double.parseDouble(txt_Cheque.getText());
+            pagamentoDinheiro = Double.parseDouble(txt_Dinheiro.getText());
+
+            totalVenda = Double.parseDouble(txtTotal.getText());
+
+            //Calcula total da compra e o preço
+            totalPago = pagamentoCartao + pagamentoCheque + pagamentoDinheiro;
+
+            //Calcular o troco do cliente
+            troco = totalPago - totalVenda;
+            txt_Troco.setText(String.valueOf(troco));
+
+            Vendas vendas = new Vendas();
+
+            //Dados do cliente 
+            vendas.setCliente(cliente);
+
+            // Pega a data da venda com formato dos EUA
+            Date agora = new Date();
+            SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
+            String dataMysql = dataEUA.format(agora);
+
+            vendas.setData_venda(dataMysql);
+
+            //Total da venda do cliente
+            vendas.setTotal_venda(totalVenda);
+            vendas.setObs(txtObs.getText());
+
+            //Salvando vendas dentro do banco de dados
+            VendasDAO dao_vendas = new VendasDAO();
+            dao_vendas.cadastrarVenda(vendas);
+
+            //Retorna o id da ultima venda realizada
+            vendas.setId(dao_vendas.retornarUltimaVenda());
+
+            //System.out.println("ID da última venda: " + vendas.getId());
+            //Cadastrar produtos na tabela de itens vendas
+            for (int i = 0; i < carrinho.getRowCount() - 1; i++) {
+                Produtos objp = new Produtos();
+                ItemVendas item = new ItemVendas();
+                item.setVenda(vendas);
+
+                objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+                //produto está na coluna 0
+                item.setProduto(objp);
+                //Quantidade está na coluna 2
+                item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+                //Subtotal está na coluna 4
+                item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+
+                ItemVendaDAO daoitem = new ItemVendaDAO();
+                daoitem.cadastrarItem(item);
+
+            }
+                            
+
+      
+        /**
+         * ****************************************************************
+         */
+
+
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
