@@ -56,32 +56,32 @@ public class VendasDAO {
             stmt.setString(2, venda.getData_venda());
             stmt.setDouble(3, venda.getTotal_venda());
             stmt.setString(4, venda.getObs());
-
+            //JOptionPane.showMessageDialog(null, "Chegamos aqui fim da venda");
             // Executar comando sql
             stmt.execute();
             // Fecha a conexão com banco de dados.
             stmt.close();
 
-            JOptionPane.showMessageDialog(null, "Venda registrada com sucesso");
 
         } catch (SQLException erroSql) {
-            throw new RuntimeException(erroSql);
-            //JOptionPane.showMessageDialog(null, "Erro" + erroSql);
+            //throw new RuntimeException(erroSql);
+
+            JOptionPane.showMessageDialog(null, "Erro111" + erroSql);
         }
     }
 
     //Método para retornar a última venda
     public int retornarUltimaVenda() {
         try {
+
             int idvenda = 0;
             
             //Função para selecionar e retornar o maior id da tabela (no caso a última venda realizada)
-            String sql = "select max(id) id from vendas";
+// tem um erro no sql max(id) id
+            String sql = "select max(id) as id from tb_vendas";
             PreparedStatement ps = conexao.prepareStatement(sql);
-
             //Verificar se existe o objeto
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 Vendas p = new Vendas();
 
@@ -89,6 +89,7 @@ public class VendasDAO {
 
                 idvenda = p.getId();
             }
+
             return idvenda;
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -54,7 +54,7 @@ public class ProdutosDAO {
         try {
             // Comando  de inserção sqlna tabela produtos.
             String sql = "insert into tb_produtos(descricao, preco, qtd_estoque, for_id)"
-                    + "                   values (?,?,?,?);";
+                    + "                   values (?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
             PreparedStatement stmt = conexao.prepareStatement(sql);
             stmt.setString(1, produto.getDescricao());

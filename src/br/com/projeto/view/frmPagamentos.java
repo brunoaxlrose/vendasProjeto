@@ -280,72 +280,71 @@ public class frmPagamentos extends javax.swing.JFrame {
 
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
         // Botão para finalizar venda
-        
-            double pagamentoCartao, pagamentoCheque, pagamentoDinheiro, totalPago, totalVenda, troco;
 
-            pagamentoCartao = Double.parseDouble(txt_Cartao.getText());
-            pagamentoCheque = Double.parseDouble(txt_Cheque.getText());
-            pagamentoDinheiro = Double.parseDouble(txt_Dinheiro.getText());
+        double pagamentoCartao, pagamentoCheque, pagamentoDinheiro, totalPago, totalVenda, troco;
 
-            totalVenda = Double.parseDouble(txtTotal.getText());
+        pagamentoCartao = Double.parseDouble(txt_Cartao.getText());
+        pagamentoCheque = Double.parseDouble(txt_Cheque.getText());
+        pagamentoDinheiro = Double.parseDouble(txt_Dinheiro.getText());
 
-            //Calcula total da compra e o preço
-            totalPago = pagamentoCartao + pagamentoCheque + pagamentoDinheiro;
+        totalVenda = Double.parseDouble(txtTotal.getText());
 
-            //Calcular o troco do cliente
-            troco = totalPago - totalVenda;
-            txt_Troco.setText(String.valueOf(troco));
+        //Calcula total da compra e o preço
+        totalPago = pagamentoCartao + pagamentoCheque + pagamentoDinheiro;
 
-            Vendas vendas = new Vendas();
+        //Calcular o troco do cliente
+        troco = totalPago - totalVenda;
+        txt_Troco.setText(String.valueOf(troco));
 
-            //Dados do cliente 
-            vendas.setCliente(cliente);
+        Vendas vendas = new Vendas();
 
-            // Pega a data da venda com formato dos EUA
-            Date agora = new Date();
-            SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
-            String dataMysql = dataEUA.format(agora);
+        //Dados do cliente 
+        vendas.setCliente(cliente);
 
-            vendas.setData_venda(dataMysql);
+        // Pega a data da venda com formato dos EUA
+        Date agora = new Date();
+        SimpleDateFormat dataEUA = new SimpleDateFormat("yyyy-MM-dd");
+        String dataMysql = dataEUA.format(agora);
 
-            //Total da venda do cliente
-            vendas.setTotal_venda(totalVenda);
-            vendas.setObs(txtObs.getText());
+        vendas.setData_venda(dataMysql);
 
-            //Salvando vendas dentro do banco de dados
-            VendasDAO dao_vendas = new VendasDAO();
-            dao_vendas.cadastrarVenda(vendas);
+        //Total da venda do cliente
+        vendas.setTotal_venda(totalVenda);
+        vendas.setObs(txtObs.getText());
 
-            //Retorna o id da ultima venda realizada
-            vendas.setId(dao_vendas.retornarUltimaVenda());
+        //Salvando vendas dentro do banco de dados
+        VendasDAO dao_vendas = new VendasDAO();
+        dao_vendas.cadastrarVenda(vendas);
+            JOptionPane.showMessageDialog(null, carrinho.getRowCount() - 1); 
 
-            //System.out.println("ID da última venda: " + vendas.getId());
-            //Cadastrar produtos na tabela de itens vendas
-            for (int i = 0; i < carrinho.getRowCount() - 1; i++) {
-                Produtos objp = new Produtos();
-                ItemVendas item = new ItemVendas();
-                item.setVenda(vendas);
+        //Retorna o id da ultima venda realizada
+        vendas.setId(dao_vendas.retornarUltimaVenda());
 
-                objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
-                //produto está na coluna 0
-                item.setProduto(objp);
-                //Quantidade está na coluna 2
-                item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
-                //Subtotal está na coluna 4
-                item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+        //System.out.println("ID da última venda: " + vendas.getId());
+        //Cadastrar produtos na tabela de itens vendas
+        for (int i = 0; i < carrinho.getRowCount() ; i++) {
 
-                ItemVendaDAO daoitem = new ItemVendaDAO();
-                daoitem.cadastrarItem(item);
+            Produtos objp = new Produtos();
+            ItemVendas item = new ItemVendas();
+            item.setVenda(vendas);
 
-            }
-                            
+            objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+            //produto está na coluna 0
+            item.setProduto(objp);
+            //Quantidade está na coluna 2
+            item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+            //Subtotal está na coluna 4
+            item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
 
-      
+            ItemVendaDAO daoitem = new ItemVendaDAO();
+
+            daoitem.cadastrarItem(item);
+            
+        }
         /**
          * ****************************************************************
          */
-
-
+        JOptionPane.showMessageDialog(null, "Venda registrada com sucesso");       
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
