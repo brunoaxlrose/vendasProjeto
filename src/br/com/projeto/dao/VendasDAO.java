@@ -24,11 +24,16 @@
 package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
+import br.com.projeto.model.Clientes;
+import br.com.projeto.model.Fornecedores;
+import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +99,45 @@ public class VendasDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    
+    //Método para buscar venda pela data
+    public List<Vendas> listarVendasPorPeriodo(String data_inicio, String data_final) {
+
+        try {
+            //Criar a lista das vendas
+            List<Vendas> lista = new ArrayList<>();
+
+            //Comando sql select
+            String sql = "select v.id , v.data_venda, c.nome, v.total_venda, v.observacoes from tb_vendas as v "
+                    +    " inner join tb_clientes as c on(v.cliente_id = c.id) where v.data_venda BETWEEN? AND?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, data_inicio);
+            stmt.setString(2, data_final);
+            //
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vendas venda = new Vendas();
+                Clientes c = new Clientes();
+                
+                
+                venda.setId(rs.getInt("v.id"));
+                venda.setData_venda(rs.getString("v.data_venda"));
+                c.setNome(rs.getString("c.nome"));
+                venda.setTotal_venda(rs.getDouble("v.total_venda"));
+                venda.setObs(rs.getString("v.observacoes"));
+                
+                venda.setCliente(c);
+                
+                lista.add(venda);
+            }
+            return lista;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro" + erro);
+            return null;
+        }            
     }
 
 }

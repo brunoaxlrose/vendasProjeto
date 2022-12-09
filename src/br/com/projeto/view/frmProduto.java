@@ -577,9 +577,7 @@ public class frmProduto extends javax.swing.JFrame {
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
         // gerar pdf
-        Utilitarios gerarPDF = new Utilitarios();
-
-        new Utilitarios().gerarPDF(tabelaProduto);
+       
 
 
     }//GEN-LAST:event_btnExportarActionPerformed

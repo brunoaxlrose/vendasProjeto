@@ -92,7 +92,6 @@ public class frmFornecedor extends javax.swing.JFrame {
         btn_Salvar = new javax.swing.JButton();
         btn_Editar = new javax.swing.JButton();
         btn_Excluir = new javax.swing.JButton();
-        btnExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -490,15 +489,6 @@ public class frmFornecedor extends javax.swing.JFrame {
             }
         });
 
-        btnExportar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/novo.png"))); // NOI18N
-        btnExportar.setText("EXPORTAR PDF");
-        btnExportar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -506,19 +496,14 @@ public class frmFornecedor extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jTabbedPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btn_Novo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Salvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Editar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_Excluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(347, 347, 347)
-                        .addComponent(btnExportar)))
+                .addGap(186, 186, 186)
+                .addComponent(btn_Novo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Salvar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Editar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Excluir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -533,9 +518,7 @@ public class frmFornecedor extends javax.swing.JFrame {
                     .addComponent(btn_Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Editar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -790,15 +773,6 @@ public class frmFornecedor extends javax.swing.JFrame {
         new Utilitarios().limparTela(panelDados);
     }//GEN-LAST:event_btn_EditarActionPerformed
 
-    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
-        // gerar pdf
-        Utilitarios gerarPDF = new Utilitarios();
-        
-        new Utilitarios().gerarPDF(tabelaFornecedor);
-        
-        
-    }//GEN-LAST:event_btnExportarActionPerformed
-
     /**
      * @param the command line arguments
      */
@@ -845,7 +819,6 @@ public class frmFornecedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnExportar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btn_Editar;
     private javax.swing.JButton btn_Excluir;
