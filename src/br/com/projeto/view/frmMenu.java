@@ -242,20 +242,20 @@ public class frmMenu extends javax.swing.JFrame {
     private void telaControleFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFornecedorActionPerformed
         // Botão para acessar a tela de fornecedor
         frmFornecedor telaControleFornecedor = new frmFornecedor();
-        telaControleFornecedor.show();
+        telaControleFornecedor.setVisible(true);
 
     }//GEN-LAST:event_telaControleFornecedorActionPerformed
 
     private void telaControleFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionarioActionPerformed
         // Botão para acessar a tela de funcionario
         frmFuncionario telaControleFuncionario = new frmFuncionario();
-        telaControleFuncionario.show();
+        telaControleFuncionario.setVisible(true);
     }//GEN-LAST:event_telaControleFuncionarioActionPerformed
 
     private void telaControleClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleClienteActionPerformed
         // Botão para acessar a tela de cliente
         frmCliente telaControleCliente = new frmCliente();
-        telaControleCliente.show();
+        telaControleCliente.setVisible(true);
     }//GEN-LAST:event_telaControleClienteActionPerformed
 
     /**

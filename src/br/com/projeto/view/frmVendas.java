@@ -24,17 +24,12 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDAO;
-import br.com.projeto.dao.FornecedoresDAO;
 import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.model.Clientes;
-import br.com.projeto.model.Fornecedores;
 import br.com.projeto.model.Produtos;
-import br.com.projeto.model.Utilitarios;
 import java.awt.event.KeyEvent;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -42,6 +37,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Bruno Oliveira
  */
 public class frmVendas extends javax.swing.JFrame {
+
+    Clientes cliente = new Clientes();
+    
+    double total, preco, subtotal;
+    int qtd;
+
+    //Recebe meus dados dos produtos dentro do carrinho
+    DefaultTableModel carrinho;
 
     //MEtodo para listar na tabela
     public frmVendas() {
@@ -78,7 +81,7 @@ public class frmVendas extends javax.swing.JFrame {
         tabelaItens = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        txt_TotalVenda = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         btnPagamento = new javax.swing.JButton();
         btnCancelarCompra = new javax.swing.JButton();
 
@@ -102,10 +105,10 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(396, 396, 396)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(258, 258, 258))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +119,7 @@ public class frmVendas extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do cliente"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jPanel2.setAutoscrolls(true);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -134,6 +137,7 @@ public class frmVendas extends javax.swing.JFrame {
         jLabel5.setText("Data:");
         jLabel5.setName("lbl_Nome"); // NOI18N
 
+        txtdataatual.setEditable(false);
         txtdataatual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtdataatual.setName("txt_Nome"); // NOI18N
 
@@ -144,6 +148,11 @@ public class frmVendas extends javax.swing.JFrame {
         }
         txt_CPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_CPF.setName("txt_Celular"); // NOI18N
+        txt_CPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_CPFKeyPressed(evt);
+            }
+        });
 
         btnBuscar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBuscar1.setText("Pesquisar");
@@ -161,19 +170,19 @@ public class frmVendas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(txt_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtdataatual, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -194,7 +203,7 @@ public class frmVendas extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do produto"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Produto"));
         jPanel3.setAutoscrolls(true);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -203,6 +212,11 @@ public class frmVendas extends javax.swing.JFrame {
 
         txt_Codigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Codigo.setName("txt_Nome"); // NOI18N
+        txt_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_CodigoKeyPressed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Produto:");
@@ -301,7 +315,7 @@ public class frmVendas extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrinho de compras"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Cupom fiscal"));
         jPanel4.setAutoscrolls(true);
 
         tabelaItens.setModel(new javax.swing.table.DefaultTableModel(
@@ -321,8 +335,8 @@ public class frmVendas extends javax.swing.JFrame {
         jLabel8.setText("TOTAL DA VENDA:");
         jLabel8.setName("lbl_Nome"); // NOI18N
 
-        txt_TotalVenda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txt_TotalVenda.setName("txt_Nome"); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtTotal.setName("txt_Nome"); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -332,17 +346,17 @@ public class frmVendas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_TotalVenda)
+                .addComponent(txtTotal)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txt_TotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         btnPagamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -374,7 +388,7 @@ public class frmVendas extends javax.swing.JFrame {
                 .addComponent(btnPagamento)
                 .addGap(20, 20, 20)
                 .addComponent(btnCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(44, 44, 44))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,11 +397,11 @@ public class frmVendas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -424,48 +438,78 @@ public class frmVendas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /*public void listar() {
-
-        ProdutosDAO dao = new ProdutosDAO();
-        List<Produtos> lista = dao.listarProdutos();
-        // Cria o objeto que armazena os dados da tabela produto.
-        DefaultTableModel dados = (DefaultTableModel) tabelaProduto.getModel();
-        // Contar quantas linhas terá dentro da tabela
-        dados.setNumRows(0);
-        // Adiciona linha para item da lista da tabela desejada.
-        for (Produtos c : lista) {
-            dados.addRow(new Object[]{
-                c.getId(),
-                c.getDescricao(),
-                c.getPreco(),
-                c.getQtd_estoque(),
-                c.getFornecedor().getNome()
-
-            });
-        }
-    }
-    */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Carrega a lista de clientes
-        //listar();
+        // Ao carregar o forms do pdv
+        //Carrega a data atual do meu sistema
+        Date agora = new Date();
+
+        //Colocar a data do tipo desejado.
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = dataBr.format(agora);
+        //Chamando a data atual para o campo txt citado.
+        txtdataatual.setText(dataFormatada);
+
     }//GEN-LAST:event_formWindowActivated
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // Botão busca dentro do  frame do cadastro de dados
-        // Esse botão busca com o nome especifico.
+        // Botão buscar dados do produto
+        Produtos obj = new Produtos();
+        ProdutosDAO dao = new ProdutosDAO();
+
+        obj = dao.consultaPorCodigo(Integer.parseInt(txt_Codigo.getText()));
+
+        obj.getDescricao();
+        
+        txt_Produto.setText(obj.getDescricao());
+        txt_Preco.setText(String.valueOf(obj.getPreco()));
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
-        // TODO add your handling code here:
+        // Botão adicionar produto na tabela, realizando a conta
+        qtd = Integer.parseInt(txt_Qtd.getText());
+        preco = Double.parseDouble(txt_Preco.getText());
+                
+        subtotal = qtd * preco;
+        
+        total += subtotal;
+        txtTotal.setText(String.valueOf(total));
+        
+        //Adicionar produto no carrinho
+        carrinho = (DefaultTableModel)tabelaItens.getModel();
+        
+        carrinho.addRow(new Object[]{
+        txt_Codigo.getText(),
+        txt_Produto.getText(),
+        txt_Qtd.getText(),
+        txt_Preco.getText(),
+        subtotal
+        
+    });
+        
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
+        // Botão pesquisar dados do cliente
+
+        Clientes cliente = new Clientes();
+        ClientesDAO dao = new ClientesDAO();
+
+        cliente = dao.consultaClientePorCpf(txt_CPF.getText());
+
+        txt_Nome.setText(cliente.getNome());
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
-        // Botão pagamento
+        // Botão pagamento para abrir a tela de pagamento
+        frmPagamentos telaPagamento =  new frmPagamentos();
+        telaPagamento.txtTotal.setText(String.valueOf(total));
+        
+        telaPagamento.cliente = cliente;
+        
+        telaPagamento.setVisible(true);
+        this.dispose();
+        
 
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
@@ -474,9 +518,36 @@ public class frmVendas extends javax.swing.JFrame {
         // Botão cancelar compra
 
     }//GEN-LAST:event_btnCancelarCompraActionPerformed
-    
 
-    
+    private void txt_CPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CPFKeyPressed
+        // Buscando cliente pelo cpf, ir clicando e me retornando um valor
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            
+            ClientesDAO dao = new ClientesDAO();
+
+            cliente = dao.consultaClientePorCpf(txt_CPF.getText());
+
+            txt_Nome.setText(cliente.getNome());
+        }
+    }//GEN-LAST:event_txt_CPFKeyPressed
+
+    private void txt_CodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CodigoKeyPressed
+        // Pressionar tecla enter para buscar um produto pelo codigo
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            Produtos obj = new Produtos();
+            ProdutosDAO dao = new ProdutosDAO();
+
+            obj = dao.consultaPorCodigo(Integer.parseInt(txt_Codigo.getText()));
+
+            obj.getDescricao();
+            //Verificar por que esta dando erro...
+            txt_Produto.setText(obj.getDescricao());
+            txt_Preco.setText(String.valueOf(obj.getPreco()));
+
+        }
+    }//GEN-LAST:event_txt_CodigoKeyPressed
 
     /**
      * @param the command line arguments
@@ -511,10 +582,7 @@ public class frmVendas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmVendas.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -546,13 +614,13 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaItens;
+    private javax.swing.JTextField txtTotal;
     private javax.swing.JFormattedTextField txt_CPF;
     private javax.swing.JTextField txt_Codigo;
     private javax.swing.JTextField txt_Nome;
     private javax.swing.JTextField txt_Preco;
     private javax.swing.JTextField txt_Produto;
     private javax.swing.JTextField txt_Qtd;
-    private javax.swing.JTextField txt_TotalVenda;
     private javax.swing.JTextField txtdataatual;
     // End of variables declaration//GEN-END:variables
 }

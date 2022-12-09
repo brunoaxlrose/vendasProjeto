@@ -240,5 +240,37 @@ public class ProdutosDAO {
                 return null;
             }
         }
+    
+        //Consultar produt pelo id
+    public Produtos consultaPorCodigo(int id)
+        {
+            try {
+                 //Comando para buscar pelo id
+            String sql = "select * from tb_produtos where id = ?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            Produtos produto = new Produtos();
+            
+            if (rs.next()) {
+                              
+                produto.setId(rs.getInt("id"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setPreco(rs.getDouble("preco"));
+                produto.setQtd_estoque(rs.getInt("qtd_estoque"));            
+
+            }
+                return produto;
+                
+                
+            } catch (Exception e) {
+                
+                JOptionPane.showMessageDialog(null, "Produto não encontrado");
+                return null;
+            }
+        }
 
 }
