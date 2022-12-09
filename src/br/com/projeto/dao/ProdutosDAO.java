@@ -272,5 +272,47 @@ public class ProdutosDAO {
                 return null;
             }
         }
+    
+    //Método para atualizar a contagem do estoque dos produtos
+    public void atualizarEstoque(int id, int qtd_nova){
+        try {
+            
+            String sql = "update tb_produtos set qtd_estoque=? where id=?";
+            
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+            
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro" + erro);
+        }
+    }
+    
+    //Método para retornar o estoque atual de u produto
+    public int retonaEstoqueAtual(int id){
+        try {
+            int qtd_estoque = 0;
+            
+            String sql = "SELECT qtd_estoque from tb_produtos where id=?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            //Se encontrar o produto, verifica a quantidade da coluna qtd_estoque
+            if(rs.next()){                
+                qtd_estoque = (rs.getInt("qtd_estoque"));
+            }
+            return qtd_estoque;
+            
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
