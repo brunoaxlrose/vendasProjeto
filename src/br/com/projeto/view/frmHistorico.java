@@ -23,7 +23,9 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.ItemVendaDAO;
 import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.model.ItemVendas;
 import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Vendas;
 import java.time.LocalDate;
@@ -219,28 +221,28 @@ public class frmHistorico extends javax.swing.JFrame {
         // Botão pesquisar dadoas da compra do cliente
 
         try {
-                    //Receber datas da compra
-        //Definir o tipo de formato que meu campo data irá receber.
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        // I´ra converter o tipo de data que foi passado pelo objeto (formato)
-        LocalDate datainicio = LocalDate.parse(txt_DataInicial.getText(), formato);
-        LocalDate datafinal = LocalDate.parse(txt_DataFinal.getText(), formato);
-        
-        VendasDAO dao = new VendasDAO();
-        List<Vendas> lista = dao.listarVendasPorPeriodo(datainicio, datafinal);
-        
-        DefaultTableModel dados = (DefaultTableModel) tabelaHistoricoVendas.getModel();
-        dados.setNumRows(0);
-        
-                for (Vendas v : lista) {
-            dados.addRow(new Object[]{
-                v.getId(),
-                v.getData_venda(),
-                v.getCliente().getNome(),
-                v.getTotal_venda(),
-                v.getObs()
-            });
-        }
+            //Receber datas da compra
+            //Definir o tipo de formato que meu campo data irá receber.
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            // I´ra converter o tipo de data que foi passado pelo objeto (formato)
+            LocalDate datainicio = LocalDate.parse(txt_DataInicial.getText(), formato);
+            LocalDate datafinal = LocalDate.parse(txt_DataFinal.getText(), formato);
+
+            VendasDAO dao = new VendasDAO();
+            List<Vendas> lista = dao.listarVendasPorPeriodo(datainicio, datafinal);
+
+            DefaultTableModel dados = (DefaultTableModel) tabelaHistoricoVendas.getModel();
+            dados.setNumRows(0);
+
+            for (Vendas v : lista) {
+                dados.addRow(new Object[]{
+                    v.getId(),
+                    v.getData_venda(),
+                    v.getCliente().getNome(),
+                    v.getTotal_venda(),
+                    v.getObs()
+                });
+            }
         } catch (Exception erroSQL) {
             JOptionPane.showMessageDialog(null, "Nenhum registro de venda encontrado.");
         }
@@ -250,12 +252,31 @@ public class frmHistorico extends javax.swing.JFrame {
     private void tabelaHistoricoVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoVendasMouseClicked
         // Clicar em alguma venda da tabela para abrir na tela de datalhe com os dados citados.
         frmDetalheVenda telaVenda = new frmDetalheVenda();
-        
+
         telaVenda.txtCliente.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 2).toString());
         telaVenda.txtData.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 1).toString());
         telaVenda.txtTotalVenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 3).toString());
         telaVenda.txt_Obs.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 4).toString());
-        
+
+        int venda_id = Integer.parseInt(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 0).toString());
+        //Dados do itens que foram comprados
+        ItemVendas item = new ItemVendas();
+        ItemVendaDAO dao_Item = new ItemVendaDAO();
+        List<ItemVendas> listaitens = dao_Item.listaItensPorVenda(venda_id);
+
+        DefaultTableModel dados = (DefaultTableModel) telaVenda.tabelaItensVendido.getModel();
+        // Contar quantas linhas terá dentro da tabela
+        dados.setNumRows(0);
+        // Adiciona linha para item da lista da tabela desejada.
+        for (ItemVendas c : listaitens) {
+            dados.addRow(new Object[]{
+                c.getProduto().getDescricao(),
+                c.getQtd(),
+                c.getProduto().getPreco(),
+                c.getSubtotal(),
+            });
+        }
+
         telaVenda.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoVendasMouseClicked
 

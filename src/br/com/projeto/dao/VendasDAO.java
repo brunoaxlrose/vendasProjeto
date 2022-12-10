@@ -33,6 +33,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -83,7 +84,7 @@ public class VendasDAO {
             int idvenda = 0;
             
             //Função para selecionar e retornar o maior id da tabela (no caso a última venda realizada)
-// tem um erro no sql max(id) id
+
             String sql = "select max(id) as id from tb_vendas";
             PreparedStatement ps = conexao.prepareStatement(sql);
             //Verificar se existe o objeto
@@ -139,6 +140,29 @@ public class VendasDAO {
             JOptionPane.showMessageDialog(null, "Erro" + erro);
             return null;
         }            
+    }
+    
+    //Método para retornar o valor total da venda do dia 
+    public double retornarTotalVendaPorData(LocalDate data_venda){
+        try {
+            
+            double totalvenda = 0;
+            
+            //Sum serve para somar total de uma coluna.
+            String sql = "select sum(total_venda)as total from tb_vendas where data_venda = ?";
+            PreparedStatement ps = conexao.prepareStatement(sql);
+            ps.setString(1, data_venda.toString());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                totalvenda = rs.getDouble("total");
+            }
+            return totalvenda;
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

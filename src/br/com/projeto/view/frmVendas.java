@@ -444,7 +444,7 @@ public class frmVendas extends javax.swing.JFrame {
         Date agora = new Date();
 
         //Colocar a data do tipo desejado.
-        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy" );
         String dataFormatada = dataBr.format(agora);
         //Chamando a data atual para o campo txt citado.
         txtdataatual.setText(dataFormatada);

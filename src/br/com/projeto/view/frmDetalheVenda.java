@@ -183,7 +183,7 @@ public class frmDetalheVenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Produto", "Qtd Comprada", "Valor", "Subtotal"
+                "Produto", "Qtd Comprada", "Valor", "Subtotal"
             }
         ));
         jScrollPane1.setViewportView(tabelaItensVendido);
@@ -204,8 +204,7 @@ public class frmDetalheVenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -262,7 +261,7 @@ public class frmDetalheVenda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabelaItensVendido;
+    public javax.swing.JTable tabelaItensVendido;
     public javax.swing.JTextField txtCliente;
     public javax.swing.JFormattedTextField txtData;
     public javax.swing.JTextField txtTotalVenda;
