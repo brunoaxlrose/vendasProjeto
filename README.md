@@ -32,6 +32,7 @@
 - Fornecedores
 - Funcionario
 - Produto
+- Histórico de vendas
 - Tela PDV (Ponto de venda)
 - Tela finalizar compra (Pagamentos)
 - Menu principal
@@ -39,5 +40,7 @@
 
 # imagens.pacotes icones CONTENDO meus ícones utilizados até o momento.
 
+# Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
-Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 08/12/2022
+
+Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 09/12/2022
