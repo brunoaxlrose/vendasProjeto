@@ -24,10 +24,17 @@
 package br.com.projeto.dao;
 
 import br.com.projeto.jdbc.ConnectionFactory;
+import br.com.projeto.model.Clientes;
 import br.com.projeto.model.ItemVendas;
+import br.com.projeto.model.Produtos;
+import br.com.projeto.model.Vendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,16 +42,17 @@ import javax.swing.JOptionPane;
  * @author bruno
  */
 public class ItemVendaDAO {
-        private Connection conexao;
+
+    private Connection conexao;
 
     public ItemVendaDAO() {
 
         this.conexao = new ConnectionFactory().getConnection();
     }
-    
+
     //Método para cadastrar os itens
-    public void cadastrarItem(ItemVendas vendaItem){
-                try {
+    public void cadastrarItem(ItemVendas vendaItem) {
+        try {
             // Comando  de inserção sqlna tabela de itensVenda.
             String sql = "insert into tb_itensvendas ( venda_id, produto_id, qtd, subtotal)"
                     + "                   values (?,?,?,?)";
@@ -54,18 +62,51 @@ public class ItemVendaDAO {
             stmt.setInt(2, vendaItem.getProduto().getId());
             stmt.setInt(3, vendaItem.getQtd());
             stmt.setDouble(4, vendaItem.getSubtotal());
-            
-            
 
             // Executar comando sql
             stmt.execute();
             // Fecha a conexão com banco de dados.
             stmt.close();
 
-            
-
         } catch (SQLException erroSql) {
             JOptionPane.showMessageDialog(null, "Erro" + erroSql);
+        }
+    }
+
+    //Método para listar itens de uma venda vendida
+    public List<ItemVendas> listaItensPorVenda(int venda_id) {
+
+        try {
+            //Criar a lista das vendas
+            List<ItemVendas> lista = new ArrayList<>();
+
+            //Comando sql select
+            String sql = "select i.id, p.descricao, i.qtd, p.preco, i.subtotal from tb_itensvendas as i "
+                    + " inner join tb_produtos as p on(i.produto_id = p.id) where i.venda_id = ?";
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, venda_id);
+            //
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ItemVendas item = new ItemVendas();
+                Produtos produto = new Produtos();
+                
+                item.setId(rs.getInt("i.id"));
+                produto.setDescricao(rs.getString("p.descricao"));
+                item.setQtd(rs.getInt("i.subtotal"));
+                produto.setPreco(rs.getDouble("p.preco"));
+                item.setSubtotal(rs.getDouble("i.qtd"));
+                
+                item.setProduto(produto);
+
+                lista.add(item);
+            }
+            return lista;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro" + erro);
+            return null;
         }
     }
 }

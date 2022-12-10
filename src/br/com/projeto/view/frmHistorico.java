@@ -23,6 +23,15 @@
  */
 package br.com.projeto.view;
 
+import br.com.projeto.dao.VendasDAO;
+import br.com.projeto.model.Produtos;
+import br.com.projeto.model.Vendas;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author bruno
@@ -164,6 +173,11 @@ public class frmHistorico extends javax.swing.JFrame {
                 "Código", "Data da Venda", "Cliente", "Total da Venda", "Obs"
             }
         ));
+        tabelaHistoricoVendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaHistoricoVendasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaHistoricoVendas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,10 +217,47 @@ public class frmHistorico extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // Botão pesquisar dadoas da compra do cliente
-        
 
+        try {
+                    //Receber datas da compra
+        //Definir o tipo de formato que meu campo data irá receber.
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        // I´ra converter o tipo de data que foi passado pelo objeto (formato)
+        LocalDate datainicio = LocalDate.parse(txt_DataInicial.getText(), formato);
+        LocalDate datafinal = LocalDate.parse(txt_DataFinal.getText(), formato);
+        
+        VendasDAO dao = new VendasDAO();
+        List<Vendas> lista = dao.listarVendasPorPeriodo(datainicio, datafinal);
+        
+        DefaultTableModel dados = (DefaultTableModel) tabelaHistoricoVendas.getModel();
+        dados.setNumRows(0);
+        
+                for (Vendas v : lista) {
+            dados.addRow(new Object[]{
+                v.getId(),
+                v.getData_venda(),
+                v.getCliente().getNome(),
+                v.getTotal_venda(),
+                v.getObs()
+            });
+        }
+        } catch (Exception erroSQL) {
+            JOptionPane.showMessageDialog(null, "Nenhum registro de venda encontrado.");
+        }
 
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void tabelaHistoricoVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoVendasMouseClicked
+        // Clicar em alguma venda da tabela para abrir na tela de datalhe com os dados citados.
+        frmDetalheVenda telaVenda = new frmDetalheVenda();
+        
+        telaVenda.txtCliente.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 2).toString());
+        telaVenda.txtData.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 1).toString());
+        telaVenda.txtTotalVenda.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 3).toString());
+        telaVenda.txt_Obs.setText(tabelaHistoricoVendas.getValueAt(tabelaHistoricoVendas.getSelectedRow(), 4).toString());
+        
+        telaVenda.setVisible(true);
+    }//GEN-LAST:event_tabelaHistoricoVendasMouseClicked
 
     /**
      * @param args the command line arguments
