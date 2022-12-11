@@ -842,10 +842,10 @@ public class frmFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel panelConsulta;
     private javax.swing.JPanel panelDados;
-    private javax.swing.JTable tabelaFornecedor;
+    public javax.swing.JTable tabelaFornecedor;
     private javax.swing.JTextField txtPesquisa;
     private javax.swing.JTextField txt_Bairro;
     private javax.swing.JFormattedTextField txt_CEP;

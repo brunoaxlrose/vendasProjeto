@@ -273,6 +273,25 @@ public class ProdutosDAO {
             }
         }
     
+    //Método para adicionar quantidade no estoque
+    public void adicionarEstoque(int id, int qtd_nova){
+        try {
+            
+            String sql = "update tb_produtos set qtd_estoque=? where id = ?";
+            
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            
+            stmt.setInt(1, qtd_nova);
+            stmt.setInt(2, id);
+            stmt.execute();
+            stmt.close();
+            
+        } catch (Exception erroSQL) {
+            
+            JOptionPane.showMessageDialog(null, "Erro:" + erroSQL);
+        }
+    }
+    
     //Método para atualizar a contagem do estoque dos produtos
     public void atualizarEstoque(int id, int qtd_nova){
         try {

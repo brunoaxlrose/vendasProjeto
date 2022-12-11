@@ -25,11 +25,16 @@ package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.dao.ProdutosDAO;
+import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Clientes;
 import br.com.projeto.model.Produtos;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import static javax.swing.UIManager.getString;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,6 +44,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmVendas extends javax.swing.JFrame {
 
     Clientes cliente = new Clientes();
+    public String usuariologado;
     
     double total, preco, subtotal;
     int qtd;
@@ -76,6 +82,8 @@ public class frmVendas extends javax.swing.JFrame {
         txt_Qtd = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnAdicionarProduto = new javax.swing.JButton();
+        lblOperador = new javax.swing.JLabel();
+        lbltxt = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaItens = new javax.swing.JTable();
@@ -255,6 +263,13 @@ public class frmVendas extends javax.swing.JFrame {
             }
         });
 
+        lblOperador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblOperador.setForeground(new java.awt.Color(0, 0, 204));
+        lblOperador.setText("Operador");
+
+        lbltxt.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbltxt.setText("Operador:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -275,13 +290,21 @@ public class frmVendas extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_Produto))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_Qtd))))
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbltxt)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblOperador)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_Preco, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_Qtd))))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(163, 163, 163)
                         .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -311,7 +334,11 @@ public class frmVendas extends javax.swing.JFrame {
                     .addComponent(txt_Qtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOperador)
+                    .addComponent(lbltxt))
+                .addContainerGap())
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -441,6 +468,8 @@ public class frmVendas extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Ao carregar o forms do pdv
         //Carrega a data atual do meu sistema
+
+        
         Date agora = new Date();
 
         //Colocar a data do tipo desejado.
@@ -448,6 +477,12 @@ public class frmVendas extends javax.swing.JFrame {
         String dataFormatada = dataBr.format(agora);
         //Chamando a data atual para o campo txt citado.
         txtdataatual.setText(dataFormatada);
+        
+        frmVendas telaPDV = new frmVendas();
+        telaPDV.usuariologado = getString("nome");
+        
+        this.setVisible(true);
+        
 
     }//GEN-LAST:event_formWindowActivated
 
@@ -594,6 +629,7 @@ public class frmVendas extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarProduto;
     private javax.swing.JButton btnBuscar;
@@ -615,6 +651,8 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblOperador;
+    private javax.swing.JLabel lbltxt;
     private javax.swing.JTable tabelaItens;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JFormattedTextField txt_CPF;
@@ -626,3 +664,4 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JTextField txtdataatual;
     // End of variables declaration//GEN-END:variables
 }
+

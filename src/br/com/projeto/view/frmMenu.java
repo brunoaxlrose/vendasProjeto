@@ -26,6 +26,8 @@ package br.com.projeto.view;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import static javax.swing.UIManager.getString;
 
 /**
  *
@@ -37,9 +39,10 @@ public class frmMenu extends javax.swing.JFrame {
     /**
      * Creates new form frmMenu
      */
-    
     public String usuariologado;
     public String usuarioCargo;
+    
+
     public frmMenu() {
         initComponents();
     }
@@ -61,20 +64,23 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         telaControleCliente = new javax.swing.JMenuItem();
+        telaConsultaCliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         telaControleFuncionario = new javax.swing.JMenuItem();
+        telaControleFuncionarios = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         telaControleFornecedor = new javax.swing.JMenuItem();
+        telaConsultaFornecedores = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        telaControledeEstoque = new javax.swing.JMenuItem();
+        telaConsultaProdutos = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        telaAbrirPDV = new javax.swing.JMenuItem();
+        telaPosicaoDia = new javax.swing.JMenuItem();
+        telaHistoricoVendas = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        telaTrocarUsuario = new javax.swing.JMenuItem();
+        SairPrograma = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema de controle de estoque");
@@ -137,6 +143,15 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jMenu1.add(telaControleCliente);
 
+        telaConsultaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
+        telaConsultaCliente.setText("Consulta de clientes");
+        telaConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaConsultaClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(telaConsultaCliente);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
@@ -150,6 +165,15 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(telaControleFuncionario);
+
+        telaControleFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
+        telaControleFuncionarios.setText("Consulta de funcionários");
+        telaControleFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleFuncionariosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(telaControleFuncionarios);
 
         jMenuBar1.add(jMenu2);
 
@@ -165,50 +189,89 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jMenu3.add(telaControleFornecedor);
 
+        telaConsultaFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
+        telaConsultaFornecedores.setText("Consulta de fornecedores");
+        telaConsultaFornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaConsultaFornecedoresActionPerformed(evt);
+            }
+        });
+        jMenu3.add(telaConsultaFornecedores);
+
         jMenuBar1.add(jMenu3);
 
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
         jMenu6.setText("Produtos");
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
-        jMenuItem5.setText("Controle de estoque");
-        jMenu6.add(jMenuItem5);
+        telaControledeEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
+        telaControledeEstoque.setText("Controle de estoque");
+        jMenu6.add(telaControledeEstoque);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
-        jMenuItem6.setText("Consulta de produtos");
-        jMenu6.add(jMenuItem6);
+        telaConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
+        telaConsultaProdutos.setText("Consulta de produtos");
+        telaConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaConsultaProdutosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(telaConsultaProdutos);
 
         jMenuBar1.add(jMenu6);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
         jMenu4.setText("Vendas");
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        jMenuItem4.setText("Abrir PDV");
-        jMenu4.add(jMenuItem4);
+        telaAbrirPDV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaAbrirPDV.setText("Abrir PDV");
+        telaAbrirPDV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaAbrirPDVActionPerformed(evt);
+            }
+        });
+        jMenu4.add(telaAbrirPDV);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        jMenuItem7.setText("Posição do dia");
-        jMenu4.add(jMenuItem7);
+        telaPosicaoDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaPosicaoDia.setText("Posição do dia");
+        telaPosicaoDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaPosicaoDiaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(telaPosicaoDia);
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        jMenuItem8.setText("Histórico de vendas");
-        jMenu4.add(jMenuItem8);
+        telaHistoricoVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaHistoricoVendas.setText("Histórico de vendas");
+        telaHistoricoVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaHistoricoVendasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(telaHistoricoVendas);
 
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
         jMenu5.setText("Configurações");
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
-        jMenuItem9.setText("Trocar de usuário");
-        jMenu5.add(jMenuItem9);
+        telaTrocarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
+        telaTrocarUsuario.setText("Trocar de usuário");
+        telaTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaTrocarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu5.add(telaTrocarUsuario);
 
         jMenuBar1.add(jMenu5);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/sair.png"))); // NOI18N
-        jMenu7.setText("Sair");
-        jMenuBar1.add(jMenu7);
+        SairPrograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/sair.png"))); // NOI18N
+        SairPrograma.setText("Sair");
+        SairPrograma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SairProgramaMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(SairPrograma);
 
         setJMenuBar(jMenuBar1);
 
@@ -258,6 +321,88 @@ public class frmMenu extends javax.swing.JFrame {
         telaControleCliente.setVisible(true);
     }//GEN-LAST:event_telaControleClienteActionPerformed
 
+    private void telaTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaTrocarUsuarioActionPerformed
+        // Botão trocar de usuário, efetuar logout
+        frmLogin telaLogin = new frmLogin();
+        int retorno;
+
+        retorno = JOptionPane.showConfirmDialog(null, "Desejar trocar de usuário?");
+
+        //Condição para caso usuário não desejar trocar o usuário.
+        if (retorno == 0) {
+            this.dispose();
+            telaLogin.setVisible(true);
+        }
+
+
+    }//GEN-LAST:event_telaTrocarUsuarioActionPerformed
+
+    private void SairProgramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairProgramaMouseClicked
+        // Ao clicar com mouse, com uma pergunta
+        int retorno;
+
+        retorno = JOptionPane.showConfirmDialog(null, "Desejar sair?");
+
+        //Condição para quando usuário clicar "Sim" a aplicação encerrar.
+        if (retorno == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_SairProgramaMouseClicked
+
+    private void telaConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaProdutosActionPerformed
+        // Botão consultar produto
+        frmProduto tela = new frmProduto();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaConsultaProdutosActionPerformed
+
+    private void telaAbrirPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaAbrirPDVActionPerformed
+        // Botão abrir pdv
+        frmVendas telaPDV = new frmVendas();
+        
+        
+        telaPDV.setVisible(true);
+        
+
+    }//GEN-LAST:event_telaAbrirPDVActionPerformed
+
+    private void telaPosicaoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaPosicaoDiaActionPerformed
+        // Botão posição do dia
+        frmTotalVenda telaPosicaoDia = new frmTotalVenda();
+        telaPosicaoDia.setVisible(true);
+    }//GEN-LAST:event_telaPosicaoDiaActionPerformed
+
+    private void telaHistoricoVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaHistoricoVendasActionPerformed
+        // Botão Controle de vendas
+        frmHistorico telaHistorico = new frmHistorico();
+        telaHistorico.setVisible(true);
+    }//GEN-LAST:event_telaHistoricoVendasActionPerformed
+
+    private void telaControleFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionariosActionPerformed
+        // Botão consultar funcionarios
+        frmFuncionario tela = new frmFuncionario();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaControleFuncionariosActionPerformed
+
+    private void telaConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaClienteActionPerformed
+        // Botão consultar cliente
+        frmCliente tela = new frmCliente();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaConsultaClienteActionPerformed
+
+    private void telaConsultaFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaFornecedoresActionPerformed
+        // Botão consultar fornecedores
+        frmFornecedor tela = new frmFornecedor();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaConsultaFornecedoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -294,6 +439,7 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu SairPrograma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -302,19 +448,21 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JMenuItem telaControleCliente;
-    private javax.swing.JMenuItem telaControleFornecedor;
-    private javax.swing.JMenuItem telaControleFuncionario;
+    private javax.swing.JMenuItem telaAbrirPDV;
+    private javax.swing.JMenuItem telaConsultaCliente;
+    private javax.swing.JMenuItem telaConsultaFornecedores;
+    private javax.swing.JMenuItem telaConsultaProdutos;
+    public javax.swing.JMenuItem telaControleCliente;
+    public javax.swing.JMenuItem telaControleFornecedor;
+    public javax.swing.JMenuItem telaControleFuncionario;
+    private javax.swing.JMenuItem telaControleFuncionarios;
+    private javax.swing.JMenuItem telaControledeEstoque;
+    public javax.swing.JMenuItem telaHistoricoVendas;
+    public javax.swing.JMenuItem telaPosicaoDia;
+    private javax.swing.JMenuItem telaTrocarUsuario;
     // End of variables declaration//GEN-END:variables
 }
