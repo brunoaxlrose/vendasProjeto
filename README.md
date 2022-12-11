@@ -44,4 +44,4 @@
 # Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
 
-Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 10/12/2022
+Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 11/12/2022
