@@ -41,6 +41,7 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public String usuariologado;
     public String usuarioCargo;
+    public String lblOperador;
     
 
     public frmMenu() {
@@ -205,6 +206,11 @@ public class frmMenu extends javax.swing.JFrame {
 
         telaControledeEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
         telaControledeEstoque.setText("Controle de estoque");
+        telaControledeEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControledeEstoqueActionPerformed(evt);
+            }
+        });
         jMenu6.add(telaControledeEstoque);
 
         telaConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
@@ -361,7 +367,7 @@ public class frmMenu extends javax.swing.JFrame {
         // Botão abrir pdv
         frmVendas telaPDV = new frmVendas();
         
-        
+        telaPDV.usuariologado = getString("nome");
         telaPDV.setVisible(true);
         
 
@@ -402,6 +408,12 @@ public class frmMenu extends javax.swing.JFrame {
         tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
     }//GEN-LAST:event_telaConsultaFornecedoresActionPerformed
+
+    private void telaControledeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControledeEstoqueActionPerformed
+        // Botão controle de estoque
+        frmEstoque tela = new frmEstoque();
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaControledeEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,7 +463,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCargo;
-    private javax.swing.JLabel lblUsuario;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuItem telaAbrirPDV;
     private javax.swing.JMenuItem telaConsultaCliente;
     private javax.swing.JMenuItem telaConsultaFornecedores;

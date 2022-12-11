@@ -24,6 +24,7 @@
 package br.com.projeto.view;
 
 import br.com.projeto.dao.ClientesDAO;
+import br.com.projeto.dao.FuncionariosDAO;
 import br.com.projeto.dao.ProdutosDAO;
 import br.com.projeto.jdbc.ConnectionFactory;
 import br.com.projeto.model.Clientes;
@@ -45,7 +46,7 @@ public class frmVendas extends javax.swing.JFrame {
 
     Clientes cliente = new Clientes();
     public String usuariologado;
-    
+
     double total, preco, subtotal;
     int qtd;
 
@@ -468,21 +469,19 @@ public class frmVendas extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Ao carregar o forms do pdv
         //Carrega a data atual do meu sistema
-
-        
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         Date agora = new Date();
 
         //Colocar a data do tipo desejado.
-        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy" );
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
         String dataFormatada = dataBr.format(agora);
         //Chamando a data atual para o campo txt citado.
         txtdataatual.setText(dataFormatada);
-        
-        frmVendas telaPDV = new frmVendas();
-        telaPDV.usuariologado = getString("nome");
-        
         this.setVisible(true);
         
+        lblOperador.setText(usuariologado);
+        this.setVisible(true);
+
 
     }//GEN-LAST:event_formWindowActivated
 
@@ -494,10 +493,10 @@ public class frmVendas extends javax.swing.JFrame {
         obj = dao.consultaPorCodigo(Integer.parseInt(txt_Codigo.getText()));
 
         obj.getDescricao();
-        
+
         txt_Produto.setText(obj.getDescricao());
         txt_Preco.setText(String.valueOf(obj.getPreco()));
-        
+
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -505,24 +504,24 @@ public class frmVendas extends javax.swing.JFrame {
         // Botão adicionar produto na tabela, realizando a conta
         qtd = Integer.parseInt(txt_Qtd.getText());
         preco = Double.parseDouble(txt_Preco.getText());
-                
+
         subtotal = qtd * preco;
-        
+
         total += subtotal;
         txtTotal.setText(String.valueOf(total));
-        
+
         //Adicionar produto no carrinho
-        carrinho = (DefaultTableModel)tabelaItens.getModel();
-        
+        carrinho = (DefaultTableModel) tabelaItens.getModel();
+
         carrinho.addRow(new Object[]{
-        txt_Codigo.getText(),
-        txt_Produto.getText(),
-        txt_Qtd.getText(),
-        txt_Preco.getText(),
-        subtotal
-        
-    });
-        
+            txt_Codigo.getText(),
+            txt_Produto.getText(),
+            txt_Qtd.getText(),
+            txt_Preco.getText(),
+            subtotal
+
+        });
+
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
@@ -538,15 +537,15 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
         // Botão pagamento para abrir a tela de pagamento
-        frmPagamentos telaPagamento =  new frmPagamentos();
+        frmPagamentos telaPagamento = new frmPagamentos();
         telaPagamento.txtTotal.setText(String.valueOf(total));
-        
+
         telaPagamento.cliente = cliente;
         telaPagamento.carrinho = carrinho;
-        
+
         telaPagamento.setVisible(true);
         this.dispose();
-        
+
 
     }//GEN-LAST:event_btnPagamentoActionPerformed
 
@@ -560,7 +559,6 @@ public class frmVendas extends javax.swing.JFrame {
         // Buscando cliente pelo cpf, ir clicando e me retornando um valor
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            
             ClientesDAO dao = new ClientesDAO();
 
             cliente = dao.consultaClientePorCpf(txt_CPF.getText());
@@ -664,4 +662,3 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JTextField txtdataatual;
     // End of variables declaration//GEN-END:variables
 }
-

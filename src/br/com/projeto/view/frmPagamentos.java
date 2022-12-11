@@ -358,7 +358,16 @@ public class frmPagamentos extends javax.swing.JFrame {
         /**
          * ****************************************************************
          */
-        JOptionPane.showMessageDialog(null, "Venda registrada com sucesso");       
+        JOptionPane.showMessageDialog(null, "Venda registrada com sucesso"); 
+        int retornoMensagem;        
+        retornoMensagem = JOptionPane.showConfirmDialog(null, "Desejar realizar outra compra?");
+
+        //Condição para caso usuário não desejar trocar o usuário.
+        if (retornoMensagem == 0) {
+            this.dispose();
+            frmVendas tela = new frmVendas();
+            tela.setVisible(true);
+        }
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
