@@ -3,7 +3,7 @@
 <h1>🧑‍💻 Projeto realizado em estrutrura DAO (DataAccessObject) com Java e banco de dados utilizando SGBD MySql 🧑‍💻.  </h1>
 *** Classes contidas no projeto até o momento ***
 
-<h3> Contendo 5 pastas  com códigos fontes sendo elas; 
+<h3> Contendo 5 pastas  com códigos fontes sendo elas; <br>
 
  br.com.projeto.dao CONTENDO meus métodos utilizando em meus forms; 
 - ClientesDAO
@@ -11,12 +11,12 @@
 - FuncionariosDAO
 - ItensVendaDAO
 - ProdutosDAO
-- VendasDAO
-
+- VendasDAO 
+<br>
  br.com.projeto.jdbc CONTENDO minha classe conexão; 
 - ConnectionFactory
-- TestaConexao
-
+- TestaConexao  
+<br>
  br.com.projeto.model CONTENDO minhas classes com meus Getters e Setters; 
 - Cliente
 - Fornecedores
@@ -26,22 +26,27 @@
 - Utilitarios
 - Vendas
 - Biblioteca de CEP
-
+<br>
  br.com.projeto.view CONTENDO meus forms; 
 - Cliente
+- Tela para detalhamento da venda
+- Estoque
 - Fornecedores
 - Funcionario
-- Produto
-- Estoque
 - Histórico de vendas
-- Tela PDV (Ponto de venda)
-- Tela finalizar compra (Pagamentos)
-- Menu principal
 - Login
+- Menu principal 
+- Tela finalizar compra (Pagamentos)
+- Produto
+- Tela total da venda diária
+- Tela PDV (Ponto de venda)
+<br>
+
+
 
  imagens.pacotes icones CONTENDO meus ícones utilizados até o momento. </h3>
 
 # Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
 
-Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 11/12/2022
+Futuramente estarei dando update no repositorio conforme andamento do projeto.  att. 1212/2022
