@@ -3,9 +3,9 @@
 <h1>🧑‍💻 Projeto realizado em estrutrura DAO (DataAccessObject) com Java e banco de dados utilizando SGBD MySql 🧑‍💻.  </h1>
 *** Classes contidas no projeto até o momento ***
 
-# Contendo 5 pastas  com códigos fontes sendo elas;
+<h3> Contendo 5 pastas  com códigos fontes sendo elas; </h3>
 
-# br.com.projeto.dao CONTENDO meus métodos utilizando em meus forms;
+<h2> br.com.projeto.dao CONTENDO meus métodos utilizando em meus forms; </h2>
 - ClientesDAO
 - FornecedoresDAO
 - FuncionariosDAO
