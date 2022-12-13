@@ -12,11 +12,11 @@
 - ItensVendaDAO
 - ProdutosDAO
 - VendasDAO 
-<br>
+
  br.com.projeto.jdbc CONTENDO minha classe conexão; 
 - ConnectionFactory
 - TestaConexao  
-<br>
+
  br.com.projeto.model CONTENDO minhas classes com meus Getters e Setters; 
 - Cliente
 - Fornecedores
@@ -26,7 +26,7 @@
 - Utilitarios
 - Vendas
 - Biblioteca de CEP
-<br>
+
  br.com.projeto.view CONTENDO meus forms; 
 - Cliente
 - Tela para detalhamento da venda
@@ -40,7 +40,7 @@
 - Produto
 - Tela total da venda diária
 - Tela PDV (Ponto de venda)
-<br>
+
 
 
 
