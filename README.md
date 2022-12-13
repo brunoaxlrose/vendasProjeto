@@ -1,6 +1,6 @@
 # vendasProjeto
 
-       #🧑‍💻 Projeto realizado em estrutrura DAO (DataAccessObject) com Java e banco de dados utilizando SGBD MySql 🧑‍💻. 
+<h1>🧑‍💻 Projeto realizado em estrutrura DAO (DataAccessObject) com Java e banco de dados utilizando SGBD MySql 🧑‍💻.  </h1>
 *** Classes contidas no projeto até o momento ***
 
 # Contendo 5 pastas  com códigos fontes sendo elas;
