@@ -106,16 +106,16 @@ public class frmEstoque extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26))
+                .addGap(30, 30, 30))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -138,7 +138,7 @@ public class frmEstoque extends javax.swing.JFrame {
         jLabel17.setName("lbl_Nome"); // NOI18N
 
         btnPesquisar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setText("Buscar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -152,7 +152,7 @@ public class frmEstoque extends javax.swing.JFrame {
         txtEstoque.setName("txt_Nome"); // NOI18N
 
         btnAdicionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAdicionar.setText("Adicionar");
+        btnAdicionar.setText("Alterar");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarActionPerformed(evt);

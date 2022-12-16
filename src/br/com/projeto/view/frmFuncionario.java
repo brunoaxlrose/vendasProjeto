@@ -257,7 +257,7 @@ public class frmFuncionario extends javax.swing.JFrame {
         txt_CPF.setName("txt_Celular"); // NOI18N
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBuscar.setText("Pesquisar");
+        btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -453,7 +453,7 @@ public class frmFuncionario extends javax.swing.JFrame {
         });
 
         btnPesquisar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setText("Buscar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -489,7 +489,7 @@ public class frmFuncionario extends javax.swing.JFrame {
                         .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnPesquisar)
-                        .addGap(0, 277, Short.MAX_VALUE)))
+                        .addGap(0, 293, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelConsultaLayout.setVerticalGroup(
