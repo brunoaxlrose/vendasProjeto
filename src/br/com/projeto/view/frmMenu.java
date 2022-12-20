@@ -42,7 +42,6 @@ public class frmMenu extends javax.swing.JFrame {
     public String usuariologado;
     public String usuarioCargo;
     public String lblOperador;
-    
 
     public frmMenu() {
         initComponents();
@@ -57,31 +56,25 @@ public class frmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        telaControleCliente = new javax.swing.JToggleButton();
+        telaControleFuncionario = new javax.swing.JToggleButton();
+        telaPDV = new javax.swing.JToggleButton();
+        SairPrograma = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblCargo = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        telaControleCliente = new javax.swing.JMenuItem();
-        telaConsultaCliente = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        telaControleFuncionario = new javax.swing.JMenuItem();
-        telaControleFuncionarios = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        telaControleFornecedor = new javax.swing.JMenuItem();
-        telaConsultaFornecedores = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        telaControledeEstoque = new javax.swing.JMenuItem();
-        telaConsultaProdutos = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        telaAbrirPDV = new javax.swing.JMenuItem();
-        telaPosicaoDia = new javax.swing.JMenuItem();
-        telaHistoricoVendas = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        telaTrocarUsuario = new javax.swing.JMenuItem();
-        SairPrograma = new javax.swing.JMenu();
+        telaConsultaCliente = new javax.swing.JToggleButton();
+        telaConsultaFuncionario = new javax.swing.JToggleButton();
+        telaConsultaFornecedores = new javax.swing.JToggleButton();
+        telaControleFornecedor = new javax.swing.JToggleButton();
+        telaTrocarUsuario = new javax.swing.JToggleButton();
+        telaHistoricoVendas = new javax.swing.JToggleButton();
+        telaControleEstoque = new javax.swing.JToggleButton();
+        telaPosicaoDia = new javax.swing.JToggleButton();
+        telaConsultaProduto = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema de controle de estoque");
@@ -91,19 +84,65 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
+        telaControleCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaControleCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
+        telaControleCliente.setText("Cadastro de Cliente");
+        telaControleCliente.setToolTipText("");
+        telaControleCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaControleCliente.setDisplayedMnemonicIndex(0);
+        telaControleCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleClienteActionPerformed(evt);
+            }
+        });
+
+        telaControleFuncionario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaControleFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
+        telaControleFuncionario.setText("Cadastro de Funcionários");
+        telaControleFuncionario.setToolTipText("");
+        telaControleFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaControleFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleFuncionarioActionPerformed(evt);
+            }
+        });
+
+        telaPDV.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaPDV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaPDV.setText("Abrir PDV");
+        telaPDV.setToolTipText("");
+        telaPDV.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaPDV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaPDVActionPerformed(evt);
+            }
+        });
+
+        SairPrograma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SairPrograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/sair.png"))); // NOI18N
+        SairPrograma.setText("Exit");
+        SairPrograma.setToolTipText("");
+        SairPrograma.setActionCommand("Configurações");
+        SairPrograma.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SairPrograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairProgramaActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Usuário logado:");
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(0, 0, 204));
-        lblUsuario.setText("Bruno");
+        lblUsuario.setText("----");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Cargo:");
 
         lblCargo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblCargo.setForeground(new java.awt.Color(0, 0, 204));
-        lblCargo.setText("Bruno");
+        lblCargo.setText("----");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,11 +153,11 @@ public class frmMenu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsuario)
-                .addGap(192, 192, 192)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCargo)
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,169 +168,189 @@ public class frmMenu extends javax.swing.JFrame {
                     .addComponent(lblUsuario)
                     .addComponent(jLabel2)
                     .addComponent(lblCargo))
-                .addContainerGap())
+                .addGap(76, 76, 76))
         );
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
-        jMenu1.setText("Clientes");
-
-        telaControleCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
-        telaControleCliente.setText("Controle de clientes");
-        telaControleCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaControleClienteActionPerformed(evt);
-            }
-        });
-        jMenu1.add(telaControleCliente);
-
+        telaConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         telaConsultaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
-        telaConsultaCliente.setText("Consulta de clientes");
+        telaConsultaCliente.setText("Consulta de Cliente");
+        telaConsultaCliente.setToolTipText("");
+        telaConsultaCliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         telaConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telaConsultaClienteActionPerformed(evt);
             }
         });
-        jMenu1.add(telaConsultaCliente);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
-        jMenu2.setText("Funcionários");
-
-        telaControleFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
-        telaControleFuncionario.setText("Controle de funcionários");
-        telaControleFuncionario.addActionListener(new java.awt.event.ActionListener() {
+        telaConsultaFuncionario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaConsultaFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
+        telaConsultaFuncionario.setText("Consulta de Funcionários");
+        telaConsultaFuncionario.setToolTipText("");
+        telaConsultaFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaConsultaFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaControleFuncionarioActionPerformed(evt);
+                telaConsultaFuncionarioActionPerformed(evt);
             }
         });
-        jMenu2.add(telaControleFuncionario);
 
-        telaControleFuncionarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/funcionarios.png"))); // NOI18N
-        telaControleFuncionarios.setText("Consulta de funcionários");
-        telaControleFuncionarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaControleFuncionariosActionPerformed(evt);
-            }
-        });
-        jMenu2.add(telaControleFuncionarios);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
-        jMenu3.setText("Fornecedores");
-
-        telaControleFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
-        telaControleFornecedor.setText("Controle de fornecedores");
-        telaControleFornecedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaControleFornecedorActionPerformed(evt);
-            }
-        });
-        jMenu3.add(telaControleFornecedor);
-
+        telaConsultaFornecedores.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         telaConsultaFornecedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
-        telaConsultaFornecedores.setText("Consulta de fornecedores");
+        telaConsultaFornecedores.setText("Consulta de Fornecedores");
+        telaConsultaFornecedores.setToolTipText("");
+        telaConsultaFornecedores.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         telaConsultaFornecedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telaConsultaFornecedoresActionPerformed(evt);
             }
         });
-        jMenu3.add(telaConsultaFornecedores);
 
-        jMenuBar1.add(jMenu3);
-
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
-        jMenu6.setText("Produtos");
-
-        telaControledeEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
-        telaControledeEstoque.setText("Controle de estoque");
-        telaControledeEstoque.addActionListener(new java.awt.event.ActionListener() {
+        telaControleFornecedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaControleFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/fornecedores.png"))); // NOI18N
+        telaControleFornecedor.setText("Cadastro de Fornecedores");
+        telaControleFornecedor.setToolTipText("");
+        telaControleFornecedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaControleFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaControledeEstoqueActionPerformed(evt);
+                telaControleFornecedorActionPerformed(evt);
             }
         });
-        jMenu6.add(telaControledeEstoque);
 
-        telaConsultaProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
-        telaConsultaProdutos.setText("Consulta de produtos");
-        telaConsultaProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaConsultaProdutosActionPerformed(evt);
-            }
-        });
-        jMenu6.add(telaConsultaProdutos);
-
-        jMenuBar1.add(jMenu6);
-
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        jMenu4.setText("Vendas");
-
-        telaAbrirPDV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        telaAbrirPDV.setText("Abrir PDV");
-        telaAbrirPDV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaAbrirPDVActionPerformed(evt);
-            }
-        });
-        jMenu4.add(telaAbrirPDV);
-
-        telaPosicaoDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        telaPosicaoDia.setText("Posição do dia");
-        telaPosicaoDia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaPosicaoDiaActionPerformed(evt);
-            }
-        });
-        jMenu4.add(telaPosicaoDia);
-
-        telaHistoricoVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
-        telaHistoricoVendas.setText("Histórico de vendas");
-        telaHistoricoVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telaHistoricoVendasActionPerformed(evt);
-            }
-        });
-        jMenu4.add(telaHistoricoVendas);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
-        jMenu5.setText("Configurações");
-
+        telaTrocarUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         telaTrocarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/configuracoes.png"))); // NOI18N
-        telaTrocarUsuario.setText("Trocar de usuário");
+        telaTrocarUsuario.setText("Trocar usuário");
+        telaTrocarUsuario.setToolTipText("");
+        telaTrocarUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         telaTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telaTrocarUsuarioActionPerformed(evt);
             }
         });
-        jMenu5.add(telaTrocarUsuario);
 
-        jMenuBar1.add(jMenu5);
-
-        SairPrograma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/sair.png"))); // NOI18N
-        SairPrograma.setText("Sair");
-        SairPrograma.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SairProgramaMouseClicked(evt);
+        telaHistoricoVendas.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaHistoricoVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaHistoricoVendas.setText("Histórico de vendas");
+        telaHistoricoVendas.setToolTipText("");
+        telaHistoricoVendas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaHistoricoVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaHistoricoVendasActionPerformed(evt);
             }
         });
-        jMenuBar1.add(SairPrograma);
 
-        setJMenuBar(jMenuBar1);
+        telaControleEstoque.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaControleEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
+        telaControleEstoque.setText("Controle de estoque");
+        telaControleEstoque.setToolTipText("");
+        telaControleEstoque.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaControleEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaControleEstoqueActionPerformed(evt);
+            }
+        });
+
+        telaPosicaoDia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaPosicaoDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/vendas.png"))); // NOI18N
+        telaPosicaoDia.setText("Posição do dia");
+        telaPosicaoDia.setToolTipText("");
+        telaPosicaoDia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaPosicaoDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaPosicaoDiaActionPerformed(evt);
+            }
+        });
+
+        telaConsultaProduto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        telaConsultaProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/produtos.png"))); // NOI18N
+        telaConsultaProduto.setText("Consulta de produtos");
+        telaConsultaProduto.setToolTipText("");
+        telaConsultaProduto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        telaConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaConsultaProdutoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(telaControleCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(telaControleFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(telaControleFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telaConsultaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telaConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 226, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(telaControleEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                            .addComponent(telaPDV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telaPosicaoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telaConsultaFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telaConsultaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SairPrograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(telaTrocarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(telaHistoricoVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 15, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telaControleCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telaControleFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaConsultaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telaConsultaFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaControleFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaTrocarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telaPDV, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaPosicaoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaHistoricoVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telaControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SairPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telaConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 216, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,8 +358,7 @@ public class frmMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Forms do menu abrir maximizado
-        this.setExtendedState(this.MAXIMIZED_BOTH);
+
         //Mostrar qual usuario está logado
         lblUsuario.setText(usuariologado);
         //Mostrar cargo do usuario.
@@ -308,24 +366,38 @@ public class frmMenu extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_formWindowActivated
 
-    private void telaControleFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFornecedorActionPerformed
-        // Botão para acessar a tela de fornecedor
-        frmFornecedor telaControleFornecedor = new frmFornecedor();
-        telaControleFornecedor.setVisible(true);
+    private void telaControleEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleEstoqueActionPerformed
+        // Abrir controle de estoque
+        frmEstoque telaEstoque = new frmEstoque();
+        telaEstoque.setVisible(true);
+    }//GEN-LAST:event_telaControleEstoqueActionPerformed
 
-    }//GEN-LAST:event_telaControleFornecedorActionPerformed
-
-    private void telaControleFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionarioActionPerformed
-        // Botão para acessar a tela de funcionario
-        frmFuncionario telaControleFuncionario = new frmFuncionario();
-        telaControleFuncionario.setVisible(true);
-    }//GEN-LAST:event_telaControleFuncionarioActionPerformed
+    private void telaConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaProdutoActionPerformed
+        // Abri consulta de produto
+        frmProduto telaProduto = new frmProduto();
+        telaProduto.setVisible(true);
+    }//GEN-LAST:event_telaConsultaProdutoActionPerformed
 
     private void telaControleClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleClienteActionPerformed
-        // Botão para acessar a tela de cliente
-        frmCliente telaControleCliente = new frmCliente();
-        telaControleCliente.setVisible(true);
+
+        frmFuncionario tela = new frmFuncionario();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(0);
+        tela.setVisible(true);
+
     }//GEN-LAST:event_telaControleClienteActionPerformed
+
+    private void SairProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairProgramaActionPerformed
+        // Ao clicar com mouse, com uma pergunta
+        int retorno;
+
+        retorno = JOptionPane.showConfirmDialog(null, "Desejar sair?");
+
+        //Condição para quando usuário clicar "Sim" a aplicação encerrar.
+        if (retorno == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_SairProgramaActionPerformed
 
     private void telaTrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaTrocarUsuarioActionPerformed
         // Botão trocar de usuário, efetuar logout
@@ -340,38 +412,7 @@ public class frmMenu extends javax.swing.JFrame {
             telaLogin.setVisible(true);
         }
 
-
     }//GEN-LAST:event_telaTrocarUsuarioActionPerformed
-
-    private void SairProgramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairProgramaMouseClicked
-        // Ao clicar com mouse, com uma pergunta
-        int retorno;
-
-        retorno = JOptionPane.showConfirmDialog(null, "Desejar sair?");
-
-        //Condição para quando usuário clicar "Sim" a aplicação encerrar.
-        if (retorno == 0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_SairProgramaMouseClicked
-
-    private void telaConsultaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaProdutosActionPerformed
-        // Botão consultar produto
-        frmProduto tela = new frmProduto();
-        //Selecionar a tela de consulta, chamando pela guia.
-        tela.jTabbedPane1.setSelectedIndex(1);
-        tela.setVisible(true);
-    }//GEN-LAST:event_telaConsultaProdutosActionPerformed
-
-    private void telaAbrirPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaAbrirPDVActionPerformed
-        // Botão abrir pdv
-        frmVendas telaPDV = new frmVendas();
-        
-        telaPDV.usuariologado = getString("nome");
-        telaPDV.setVisible(true);
-        
-
-    }//GEN-LAST:event_telaAbrirPDVActionPerformed
 
     private void telaPosicaoDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaPosicaoDiaActionPerformed
         // Botão posição do dia
@@ -385,14 +426,6 @@ public class frmMenu extends javax.swing.JFrame {
         telaHistorico.setVisible(true);
     }//GEN-LAST:event_telaHistoricoVendasActionPerformed
 
-    private void telaControleFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionariosActionPerformed
-        // Botão consultar funcionarios
-        frmFuncionario tela = new frmFuncionario();
-        //Selecionar a tela de consulta, chamando pela guia.
-        tela.jTabbedPane1.setSelectedIndex(1);
-        tela.setVisible(true);
-    }//GEN-LAST:event_telaControleFuncionariosActionPerformed
-
     private void telaConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaClienteActionPerformed
         // Botão consultar cliente
         frmCliente tela = new frmCliente();
@@ -400,6 +433,14 @@ public class frmMenu extends javax.swing.JFrame {
         tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
     }//GEN-LAST:event_telaConsultaClienteActionPerformed
+
+    private void telaConsultaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaFuncionarioActionPerformed
+        // Botão consultar funcionario
+        frmFuncionario tela = new frmFuncionario();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(1);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaConsultaFuncionarioActionPerformed
 
     private void telaConsultaFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaConsultaFornecedoresActionPerformed
         // Botão consultar fornecedores
@@ -409,11 +450,28 @@ public class frmMenu extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_telaConsultaFornecedoresActionPerformed
 
-    private void telaControledeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControledeEstoqueActionPerformed
-        // Botão controle de estoque
-        frmEstoque tela = new frmEstoque();
+    private void telaControleFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFuncionarioActionPerformed
+        // Botão consultar funcionario
+        frmFuncionario tela = new frmFuncionario();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(0);
         tela.setVisible(true);
-    }//GEN-LAST:event_telaControledeEstoqueActionPerformed
+    }//GEN-LAST:event_telaControleFuncionarioActionPerformed
+
+    private void telaPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaPDVActionPerformed
+        // Botão abrir pdv
+        frmVendas telaPDV = new frmVendas();
+
+        telaPDV.usuariologado = getString("nome");
+        telaPDV.setVisible(true);
+    }//GEN-LAST:event_telaPDVActionPerformed
+
+    private void telaControleFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaControleFornecedorActionPerformed
+        frmFornecedor tela = new frmFornecedor();
+        //Selecionar a tela de consulta, chamando pela guia.
+        tela.jTabbedPane1.setSelectedIndex(0);
+        tela.setVisible(true);
+    }//GEN-LAST:event_telaControleFornecedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,30 +509,24 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu SairPrograma;
+    public javax.swing.JToggleButton SairPrograma;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCargo;
     public javax.swing.JLabel lblUsuario;
-    private javax.swing.JMenuItem telaAbrirPDV;
-    private javax.swing.JMenuItem telaConsultaCliente;
-    private javax.swing.JMenuItem telaConsultaFornecedores;
-    private javax.swing.JMenuItem telaConsultaProdutos;
-    public javax.swing.JMenuItem telaControleCliente;
-    public javax.swing.JMenuItem telaControleFornecedor;
-    public javax.swing.JMenuItem telaControleFuncionario;
-    private javax.swing.JMenuItem telaControleFuncionarios;
-    private javax.swing.JMenuItem telaControledeEstoque;
-    public javax.swing.JMenuItem telaHistoricoVendas;
-    public javax.swing.JMenuItem telaPosicaoDia;
-    private javax.swing.JMenuItem telaTrocarUsuario;
+    public javax.swing.JToggleButton telaConsultaCliente;
+    public javax.swing.JToggleButton telaConsultaFornecedores;
+    public javax.swing.JToggleButton telaConsultaFuncionario;
+    public javax.swing.JToggleButton telaConsultaProduto;
+    public javax.swing.JToggleButton telaControleCliente;
+    public javax.swing.JToggleButton telaControleEstoque;
+    public javax.swing.JToggleButton telaControleFornecedor;
+    public javax.swing.JToggleButton telaControleFuncionario;
+    public javax.swing.JToggleButton telaHistoricoVendas;
+    public javax.swing.JToggleButton telaPDV;
+    public javax.swing.JToggleButton telaPosicaoDia;
+    public javax.swing.JToggleButton telaTrocarUsuario;
     // End of variables declaration//GEN-END:variables
 }

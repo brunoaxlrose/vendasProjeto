@@ -308,7 +308,7 @@ public class FuncionariosDAO {
                     tela.telaControleCliente.setEnabled(false);
                     tela.telaControleFornecedor.setEnabled(false);
                     tela.telaControleFuncionario.setEnabled(false);
-                    
+                   
                     //Abrir tela menu principal
                     tela.setVisible(true);
                 }
