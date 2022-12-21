@@ -94,6 +94,7 @@ public class frmFornecedor extends javax.swing.JFrame {
         btn_Excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(java.awt.SystemColor.windowBorder);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
