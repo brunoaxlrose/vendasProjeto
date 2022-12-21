@@ -14,6 +14,9 @@
 <h2> Abaixo deixo algumas imagens do projeto; </h2>
 
 <div align="center">
+* Menu Principal * <br>
+ <img align="center" alt="menu_Principal" src="https://raw.githubusercontent.com/brunoaxlrose/vendasProjeto/master/src/br/com/projeto/imagens/menuPrincipal1.png" />
+ <br>
 * Cliente * <br>
  <img align="center" alt="cadastro_Cliente" src="https://raw.githubusercontent.com/brunoaxlrose/vendasProjeto/master/src/br/com/projeto/imagens/cadastroCliente.png" />
  <br>
@@ -47,4 +50,4 @@
 # Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
 
-Estarei atualizando a interface do projeto para melhor vizualização do usuário.  att. 18/12/2022
+Estarei atualizando a interface do projeto para melhor vizualização do usuário.  att. 21/12/2022
