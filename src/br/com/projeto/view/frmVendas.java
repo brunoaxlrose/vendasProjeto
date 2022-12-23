@@ -151,6 +151,11 @@ public class frmVendas extends javax.swing.JFrame {
         txtdataatual.setEditable(false);
         txtdataatual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtdataatual.setName("txt_Nome"); // NOI18N
+        txtdataatual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdataatualActionPerformed(evt);
+            }
+        });
 
         try {
             txt_CPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -586,6 +591,10 @@ public class frmVendas extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_txt_CodigoKeyPressed
+
+    private void txtdataatualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataatualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdataatualActionPerformed
 
     /**
      * @param the command line arguments

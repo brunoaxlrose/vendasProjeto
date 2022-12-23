@@ -25,6 +25,8 @@ package br.com.projeto.view;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.getString;
@@ -77,7 +79,7 @@ public class frmMenu extends javax.swing.JFrame {
         telaConsultaProduto = new javax.swing.JToggleButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        lblCargo1 = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -165,7 +167,7 @@ public class frmMenu extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCargo)
-                .addContainerGap(360, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,12 +285,12 @@ public class frmMenu extends javax.swing.JFrame {
 
         jPanel3.setBackground(java.awt.SystemColor.windowBorder);
 
-        lblCargo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblCargo1.setForeground(new java.awt.Color(0, 0, 204));
-        lblCargo1.setText("----");
+        lblData.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblData.setForeground(new java.awt.Color(0, 0, 204));
+        lblData.setText("----");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Horário:");
+        jLabel4.setText("Data:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -298,7 +300,7 @@ public class frmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCargo1)
+                .addComponent(lblData)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -307,7 +309,7 @@ public class frmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblCargo1))
+                    .addComponent(lblData))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -346,9 +348,9 @@ public class frmMenu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,6 +406,16 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
+        Date agora = new Date();
+
+        //Colocar a data do tipo desejado.
+       // SimpleDateTime dataBr = new SimpleDateTime("dd/MM/yyyy HH:MM:ss");
+        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
+        String dataFormatada = dataBr.format(agora);
+        //Chamando a data atual para o campo txt citado.
+        lblData.setText(dataFormatada);
+        this.setVisible(true);
+        
         //Mostrar qual usuario está logado
         lblUsuario.setText(usuariologado);
         //Mostrar cargo do usuario.
@@ -563,7 +575,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblCargo;
-    private javax.swing.JLabel lblCargo1;
+    public javax.swing.JLabel lblData;
     public javax.swing.JLabel lblUsuario;
     public javax.swing.JToggleButton telaConsultaCliente;
     public javax.swing.JToggleButton telaConsultaFornecedores;
