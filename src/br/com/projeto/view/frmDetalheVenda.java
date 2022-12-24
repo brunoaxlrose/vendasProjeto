@@ -66,7 +66,7 @@ public class frmDetalheVenda extends javax.swing.JFrame {
         setTitle("Detalhe da venda");
         setBackground(java.awt.SystemColor.windowBorder);
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(55, 149, 193));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N

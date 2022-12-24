@@ -90,7 +90,7 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(java.awt.SystemColor.windowBorder);
+        jPanel2.setBackground(new java.awt.Color(55, 149, 193));
 
         telaControleCliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         telaControleCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pacotes icones/clientes.png"))); // NOI18N
@@ -138,20 +138,20 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(java.awt.SystemColor.windowBorder);
+        jPanel1.setBackground(new java.awt.Color(55, 149, 193));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Usuário logado:");
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(0, 0, 204));
+        lblUsuario.setForeground(new java.awt.Color(255, 0, 0));
         lblUsuario.setText("----");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Cargo:");
 
         lblCargo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblCargo.setForeground(new java.awt.Color(0, 0, 204));
+        lblCargo.setForeground(new java.awt.Color(255, 0, 0));
         lblCargo.setText("----");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -283,10 +283,10 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/projeto/imagens/LOGO.png"))); // NOI18N
         jLabel3.setLabelFor(this);
 
-        jPanel3.setBackground(java.awt.SystemColor.windowBorder);
+        jPanel3.setBackground(new java.awt.Color(55, 149, 193));
 
         lblData.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblData.setForeground(new java.awt.Color(0, 0, 204));
+        lblData.setForeground(new java.awt.Color(255, 0, 0));
         lblData.setText("----");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
