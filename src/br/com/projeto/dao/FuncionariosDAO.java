@@ -50,7 +50,7 @@ public class FuncionariosDAO {
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setRg(rs.getString("rg"));
                 funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setEmail(rs.getString("email"));
+                funcionario.setEmail(rs.getString("usuario"));
 
                 funcionario.setSenha(rs.getString("senha"));
                 funcionario.setCargo(rs.getString("cargo"));
@@ -94,7 +94,7 @@ public class FuncionariosDAO {
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setRg(rs.getString("rg"));
                 funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setEmail(rs.getString("email"));
+                funcionario.setEmail(rs.getString("usuario"));
 
                 funcionario.setSenha(rs.getString("senha"));
                 funcionario.setCargo(rs.getString("cargo"));
@@ -124,7 +124,7 @@ public class FuncionariosDAO {
     public void cadastrarFuncionario(Funcionario funcionario) {
         try {
             // Comando  de inserção sqlna tabela funcionarios.
-            String sql = "insert into tb_funcionarios(nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,"
+            String sql = "insert into tb_funcionarios(nome,rg,cpf,usuario,senha,cargo,nivel_acesso,telefone,"
                     + "celular,endereco,cep,numero,complemento,bairro,cidade,estado)"
                     + "                   values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             // Conectar ao banco de dados e organizar o comando sql.
@@ -162,7 +162,7 @@ public class FuncionariosDAO {
     public void alterarFuncionario(Funcionario funcionario) {
         try {
             // Comando  de inserção na tabela cliente pelo id.
-            String sql = "update tb_funcionarios set nome=?,rg=?, cpf=?, email=?, senha=?, cargo=?"
+            String sql = "update tb_funcionarios set nome=?,rg=?, cpf=?, usuario=?, senha=?, cargo=?"
                     + "   , nivel_acesso=?, telefone=?, celular=?, cep=?"
                     + "   , endereco=?, numero=?, complemento=?, bairro=?, cidade=?, estado=? where id = ?";
 
@@ -242,7 +242,7 @@ public class FuncionariosDAO {
                 funcionario.setNome(rs.getString("nome"));
                 funcionario.setRg(rs.getString("rg"));
                 funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setEmail(rs.getString("email"));
+                funcionario.setEmail(rs.getString("usuario"));
 
                 funcionario.setSenha(rs.getString("senha"));
                 funcionario.setCargo(rs.getString("cargo"));
@@ -274,7 +274,7 @@ public class FuncionariosDAO {
         try {
 
             //Sql
-            String sql = "select * from tb_funcionarios where email=? and senha=?";
+            String sql = "select * from tb_funcionarios where usuario=? and senha=?";
             PreparedStatement stmt = conexao.prepareStatement(sql);
 
             //Organizar em cada ponto de interrogação.

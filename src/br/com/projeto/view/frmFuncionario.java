@@ -122,7 +122,7 @@ public class frmFuncionario extends javax.swing.JFrame {
         jLabel3.setName("lbl_Nome"); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("E-mail:");
+        jLabel4.setText("Usuário:");
         jLabel4.setName("lbl_Email"); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -371,7 +371,7 @@ public class frmFuncionario extends javax.swing.JFrame {
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbxNivelAcesso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDadosLayout.setVerticalGroup(
             panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,7 +466,7 @@ public class frmFuncionario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código:", "Nome:", "RG", "CPF", "Email", "Senha", "Cargo", "Nível Acesso", "Celular", "Telefone", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
+                "Código:", "Nome:", "RG", "CPF", "Usuário", "Senha", "Cargo", "Nível Acesso", "Celular", "Telefone", "CEP", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
         tabelaFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
