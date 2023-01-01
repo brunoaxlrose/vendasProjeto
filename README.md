@@ -47,7 +47,10 @@
 </div>
 
 
+
 # Obs contém uma API de email, estou realizando testes para implementação ao sistema.
 
+Atualmente atualizando interface visual do projeto.
 
-Estarei atualizando a interface do projeto para melhor vizualização do usuário.  att. 30/12/2022
+
+Estarei atualizando a interface do projeto para melhor vizualização do usuário.  att. 01/01/2023.
